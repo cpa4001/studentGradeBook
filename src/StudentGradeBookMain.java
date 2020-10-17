@@ -80,14 +80,20 @@ public class StudentGradeBookMain {
             System.out.println("(7) Exit Program");
             int command = scan.nextInt();
             scan.nextLine();
-            System.out.println("-------------------------");
+            System.out.println("-----------------------");
 
             Teacher greenwell = new Teacher();
-            if (command != 7){
+            if (command > 7 || command < 1){
+                System.out.println("Not a valid command, please enter a number (1-7): ");
+                command = scan.nextInt();
+                scan.nextLine();
+            }else if (command != 7) {
                 greenwell.teacherDecision(command);
             }else{
                 teacherInput = false;
             }
+
+
 
 
 

@@ -27,11 +27,6 @@ public class Classroom {
 
         return  classAvg / assignmentsAndTests.size();
     }
-    protected void printAllStudentNames() {
-        for (String name : students) {
-             System.out.println(name);
-        }
-    }
     protected void addStudent(String firstName, String lastName){
         students.add(firstName + " " + lastName);
     }

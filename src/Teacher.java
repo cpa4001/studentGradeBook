@@ -24,8 +24,10 @@ public class Teacher {
     protected void teacherDecision(int input){
         switch(input){
             case 1:
+                printAllStudentNames();
                 break;
             case 2:
+                //printGradeMatrix
                 break;
             case 3:
                 break;
@@ -38,4 +40,20 @@ public class Teacher {
         }
 
     }
+    protected void printAllStudentNames() {
+        for (String name : Classroom.students) {
+            System.out.println(name);
+        }
+    }
+    protected void printGradeMatrix(){
+        for(int i = 0; i <= Classroom.students.size(); i++){
+            System.out.println(Classroom.students.get(i) + " " + Classroom.gradeMatrix.get(i));
+        }
+    }
+    /*
+    protected void addAssignment(String assignmentName, String assignmentWeight){
+
+    }
+
+     */
 }
