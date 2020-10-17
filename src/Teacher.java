@@ -27,7 +27,7 @@ public class Teacher {
                 printAllStudentNames();
                 break;
             case 2:
-                //printGradeMatrix
+                printGradeMatrix();
                 break;
             case 3:
                 break;

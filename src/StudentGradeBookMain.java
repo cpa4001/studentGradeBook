@@ -93,12 +93,6 @@ public class StudentGradeBookMain {
                 teacherInput = false;
                 System.out.println("Have a nice day Professor.");
             }
-
-
-
-
-
-
         }
     }
 }
