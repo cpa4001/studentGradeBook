@@ -91,6 +91,7 @@ public class StudentGradeBookMain {
                 greenwell.teacherDecision(command);
             }else{
                 teacherInput = false;
+                System.out.println("Have a nice day Professor.");
             }
 
 
