@@ -47,7 +47,9 @@ public class Teacher {
     }
     private void fillGradeMatrix(){
         for(int i = 0; i <= Classroom.students.size(); i++){
-            System.out.println(Classroom.students.get(i) + " " + Classroom.gradeMatrix.get(i));
+            for(int j = 0; i <= Classroom.assignmentsAndTests.size(); i++){
+                Classroom.gradeMatrix.get(i).set(j, 0.00);
+            }
         }
     }
     protected void printGradeMatrix(){
