@@ -77,7 +77,7 @@ public class StudentGradeBookMain {
             System.out.println("(4) Add a Test.");
             System.out.println("(5) Assign a grade.");
             System.out.println("(6) Edit a grade.");
-            System.out.println("(7) Exit Program");
+            System.out.println("(7) Exit Gradebook");
             int command = scan.nextInt();
             scan.nextLine();
             System.out.println("-----------------------");
@@ -93,6 +93,7 @@ public class StudentGradeBookMain {
                 teacherInput = false;
                 System.out.println("Have a nice day Professor.");
             }
+
         }
     }
 }

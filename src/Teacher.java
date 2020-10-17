@@ -45,6 +45,11 @@ public class Teacher {
             System.out.println(name);
         }
     }
+    private void fillGradeMatrix(){
+        for(int i = 0; i <= Classroom.students.size(); i++){
+            System.out.println(Classroom.students.get(i) + " " + Classroom.gradeMatrix.get(i));
+        }
+    }
     protected void printGradeMatrix(){
         for(int i = 0; i <= Classroom.students.size(); i++){
             System.out.println(Classroom.students.get(i) + " " + Classroom.gradeMatrix.get(i));
