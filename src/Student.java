@@ -57,5 +57,24 @@ public class Student {
         }
     }
 
+    protected void determineOverallGrade(){
+
+            /** determineLetterGrade will take in the final grade in decimal format
+             * and determine the letter grade for that student.
+             * double overallGrade: the students final grade in decimal format
+             */
+            if(overallGrade > 89.00){
+                System.out.println("Your overall grade was an A!");
+            }else if (overallGrade > 79.00){
+                System.out.println("Your overall grade was a B");
+            }else if (overallGrade > 69.00){
+                System.out.println("Your overall grade was a C");
+            } else if(overallGrade > 59.00){
+                System.out.println("Your overall grade was a D");
+            }else {
+                System.out.println("Your overall grade was a F");
+            }
+    }
+
 
 }
