@@ -46,8 +46,13 @@ public class StudentGradeBookMain {
     public static void main(String[] args){
         //This array will have the names of all the students of the class
 
+        String[] CLASS_SELECTION = new String[5];
+        CLASS_SELECTION = new String[]{"Computational Math", "Graph Theory", "Differential Equations", "Linear Algebra", "Discrete Math"};
         Classroom introToProgramming = new Classroom();
         Scanner scan = new Scanner(System.in);
+
+        System.out.println("What class are you entering for");
+        String ClassPick = scan.nextLine();
 
         System.out.print("Would you like to sign in as a Student or Teacher (S/T) ");
         String signInOption = scan.nextLine();

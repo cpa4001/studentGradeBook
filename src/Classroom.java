@@ -33,4 +33,17 @@ public class Classroom {
     protected void removeStudent(String firstName, String lastName){
         students.remove(firstName + " " + lastName);
     }
+
+    public static double getStudentsGrades(){
+        double sumOfStudentScores = 0.00;
+        int counter = 0;
+        Scanner scan = new Scanner(System.in);
+        boolean studentInput = true;
+        while(studentInput){
+            sumOfStudentScores += scan.nextInt();
+            scan.nextLine();
+            counter++;
+        }
+        return sumOfStudentScores / counter;
+    }
 }
