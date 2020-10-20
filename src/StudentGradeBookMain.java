@@ -56,6 +56,7 @@ public class StudentGradeBookMain {
         if(signInOption.toLowerCase().equals("s")) {
             System.out.println("Welcome Student.");
             passwordCorrect = true;
+            //studentAction();
         }
         while(!passwordCorrect){
             System.out.print("Please Enter Teacher Password ");
@@ -78,17 +79,17 @@ public class StudentGradeBookMain {
             System.out.println("(5) Assign a grade.");
             System.out.println("(6) Edit a grade.");
             System.out.println("(7) Exit Gradebook");
-            int command = scan.nextInt();
+            int teacherCommand = scan.nextInt();
             scan.nextLine();
             System.out.println("-----------------------");
 
             Teacher greenwell = new Teacher();
-            if (command > 7 || command < 1){
+            if (teacherCommand > 7 || teacherCommand < 1){
                 System.out.println("Not a valid command, please enter a number (1-7): ");
-                command = scan.nextInt();
+                teacherCommand = scan.nextInt();
                 scan.nextLine();
-            }else if (command != 7) {
-                greenwell.teacherDecision(command);
+            }else if (teacherCommand != 7) {
+                greenwell.teacherDecision(teacherCommand);
             }else{
                 teacherInput = false;
                 System.out.println("Have a nice day Professor.");
