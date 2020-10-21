@@ -14,7 +14,7 @@
 
 **Constraints (externally imposed limitations on system requirements, design, or implementation or on the process used to develop or modify a system)** </br> 
 
-**Assumptions (things that are accepted as true or as certain to happen, without proof)** </br> 
+**Assumptions (things that are accepted as true or as certain to happen, without proof)** </br>  
 
 **Stakeholders (individuals or organizations having a right, share, claim, or interest in a system or in its possession of characteristics that meet their needs and expectations)**
 - Provost
