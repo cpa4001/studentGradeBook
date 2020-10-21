@@ -87,10 +87,8 @@ public class StudentGradeBookMain {
         determineLetterGrade(overallGrade);
     }
     public static void main(String[] args){
-        //This array will have the names of all the students of the class
 
-        String[] CLASS_SELECTION = new String[5];
-        CLASS_SELECTION = new String[]{"Computational Math", "Graph Theory", "Differential Equations", "Linear Algebra", "Discrete Math"};
+        final String[] CLASS_SELECTION = {"Computational Math", "Graph Theory", "Differential Equations", "Linear Algebra", "Discrete Math"};
         Classroom introToProgramming = new Classroom();
         Scanner scan = new Scanner(System.in);
 
