@@ -74,7 +74,17 @@ public class StudentGradeBookMain {
         int maxTotalPoints = 700;
 
         System.out.println("What was your overall quiz grade?");
+        double quizGrade = scan.nextDouble() * quizWeight;
+        scan.nextLine();
+        System.out.println("What was your overall exam grade?");
+        double examGrade = scan.nextDouble() * examWeight;
+        System.out.println("What was your overall homework grade?");
+        double homeworkGrade = scan.nextDouble() * homeworkWeight;
+        System.out.println("What was your overall project grade?");
+        double projectGrade = scan.nextDouble() * projectWeight;
 
+        double overallGrade = quizGrade + examGrade + homeworkGrade + projectGrade;
+        determineLetterGrade(overallGrade);
     }
     public static void main(String[] args){
         //This array will have the names of all the students of the class
