@@ -45,7 +45,7 @@ public class StudentGradeBookMain {
         return true;
     }
     public static void writeFile() throws FileNotFoundException {
-        String fileName = "studentgradebooktemp.txt";
+        String fileName = "temp.txt";
         String line = null;
         FileReader fileReader = new FileReader(fileName);
 
@@ -56,17 +56,25 @@ public class StudentGradeBookMain {
                 System.out.println(line);
             }
             //addgrades();
-            // Always close files.
             bufferedReader.close();
         }
         catch(FileNotFoundException ex) {
-            System.out.println(
-                    "Unable to open file '" + fileName + "'");
+            System.out.println("Unable to open file '" + fileName + "'");
         }
         catch(IOException ex) {
-            System.out.println(
-                    "Error reading file '" + fileName + "'");
+            System.out.println("Error reading file '" + fileName + "'");
         }
+    }
+    public static void addGrades(){
+        Scanner scan = new Scanner(System.in);
+        double quizWeight = 0.2;
+        double examWeight = 0.3;
+        double homeworkWeight = 0.25;
+        double projectWeight = 0.25;
+        int maxTotalPoints = 700;
+
+        System.out.println("What was your overall quiz grade?");
+
     }
     public static void main(String[] args){
         //This array will have the names of all the students of the class
