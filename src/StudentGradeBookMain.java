@@ -52,8 +52,12 @@ public class StudentGradeBookMain {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("What class are you entering for");
-        String ClassPick = scan.nextLine();
-
+        String classPick = scan.nextLine();
+        
+        while(Arrays.binarySearch(CLASS_SELECTION, classPick) <= 0){
+            System.out.println("Invalid class, please enter a correct class");
+            classPick = scan.nextLine();
+        }
         System.out.print("Would you like to sign in as a Student or Teacher (S/T) ");
         String signInOption = scan.nextLine();
         boolean passwordCorrect = false;
