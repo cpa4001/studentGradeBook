@@ -6,6 +6,7 @@
  */
 import java.lang.String;
 import java.util.*;
+import java.io.*;
 @SuppressWarnings("DanglingJavadoc")
 public class StudentGradeBookMain {
     public static void determineLetterGrade(double overallGrade){
@@ -42,6 +43,30 @@ public class StudentGradeBookMain {
             return true;
         }
         return true;
+    }
+    public static void writeFile(){
+        String fileName = "studentgradebooktemp.txt";
+        String line = null;
+        FileReader fileReader = new FileReader(fileName);
+
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        try {
+            while((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+            //addgrades();
+            // Always close files.
+            bufferedReader.close();
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                    "Unable to open file '" + fileName + "'");
+        }
+        catch(IOException ex) {
+            System.out.println(
+                    "Error reading file '" + fileName + "'");
+        }
     }
     public static void main(String[] args){
         //This array will have the names of all the students of the class
