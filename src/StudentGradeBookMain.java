@@ -1,16 +1,17 @@
-/**
-  Student Gradebook acts as an interface where students can sign in and view grades, and
+/*
+  Student Grade Book acts as an interface where students can sign in and view grades, and
   where teachers can sign in, edit, and assign grades.
   Author: Christian Apostoli
   Date: 10/16/2020
+
+  ADD ALL JAVADOCS ON GITHUB
  */
 import java.lang.String;
 import java.util.*;
 import java.io.*;
-@SuppressWarnings("DanglingJavadoc")
 public class StudentGradeBookMain {
-    public static void determineLetterGrade(double overallGrade){
-        /** determineLetterGrade will take in the final grade in decimal format
+    private static void determineLetterGrade(double overallGrade){
+        /* determineLetterGrade will take in the final grade in decimal format
          * and determine the letter grade for that student.
          * double overallGrade: the students final grade in decimal format
          */
@@ -40,13 +41,13 @@ public class StudentGradeBookMain {
     */
     public static boolean validateGradeWeight(double assignmentGrade, double assignmentWeight){
         if(assignmentGrade > 100 || assignmentGrade < 0 || assignmentWeight > 100 || assignmentWeight < 0 ){
-            return true;
+            return false;
         }
         return true;
     }
     public static void writeFile() throws FileNotFoundException {
         String fileName = "temp.txt";
-        String line = null;
+        String line;
         FileReader fileReader = new FileReader(fileName);
 
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -55,7 +56,7 @@ public class StudentGradeBookMain {
             while((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
             }
-            //addgrades();
+            //addGrades();
             bufferedReader.close();
         }
         catch(FileNotFoundException ex) {
@@ -115,7 +116,7 @@ public class StudentGradeBookMain {
             System.out.print("Are you done entering grades for this class(y/n)");
             studentYesOrNo = scan.nextLine();
             if(studentYesOrNo.toLowerCase().equals("y")){
-
+                studentInput = false;
             }
         }
         /*
@@ -139,7 +140,7 @@ public class StudentGradeBookMain {
 
         boolean teacherInput = true;
         while(teacherInput){
-            //getinput();
+            //getInput();
             System.out.println("-----------------------");
             System.out.println("Please enter a command (1-6)");
             System.out.println("(1) Show all students.");

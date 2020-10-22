@@ -59,7 +59,7 @@ public class Student {
 
     protected void determineOverallGrade(){
 
-            /** determineLetterGrade will take in the final grade in decimal format
+            /* determineLetterGrade will take in the final grade in decimal format
              * and determine the letter grade for that student.
              * double overallGrade: the students final grade in decimal format
              */
