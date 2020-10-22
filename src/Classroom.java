@@ -1,7 +1,7 @@
 import java.util.*;
 public class Classroom {
-    public static ArrayList<String> students = new ArrayList<String>();
-    public static ArrayList<String> assignmentsAndTests = new ArrayList<String>();
+    public static ArrayList<String> students = new ArrayList<>();
+    public static ArrayList<String> assignmentsAndTests = new ArrayList<>();
     public static ArrayList<ArrayList<Double>> gradeMatrix = new ArrayList<ArrayList<Double>>();
 
     public Classroom(){
@@ -36,14 +36,19 @@ public class Classroom {
 
     public static double getStudentsGrades(){
         double sumOfStudentScores = 0.00;
-        int counter = 0;
+        int counter = 1;
         Scanner scan = new Scanner(System.in);
         boolean studentInput = true;
+        System.out.println("Please enter your scores:");
         while(studentInput){
+            System.out.print("Score "+ counter + ": ");
             sumOfStudentScores += scan.nextInt();
-            scan.nextLine();
+            String endCommand = scan.nextLine();
             counter++;
+            if(endCommand.toLowerCase().equals("end")){
+                studentInput = false;
+            }
         }
-        return sumOfStudentScores / counter;
+        return sumOfStudentScores / (counter - 1);
     }
 }

@@ -3,8 +3,6 @@ public class Student {
 
     public String studentFirstName;
     public String studentLastName;
-    public String studentId;
-    public String className;
     public double overallGrade;
     int studentCommand;
 
