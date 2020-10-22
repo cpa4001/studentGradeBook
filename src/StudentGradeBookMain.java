@@ -92,11 +92,11 @@ public class StudentGradeBookMain {
         Classroom introToProgramming = new Classroom();
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("What class are you entering for");
+        System.out.print("What class are you entering for: ");
         String classPick = scan.nextLine();
         
-        while(Arrays.binarySearch(CLASS_SELECTION, classPick) <= 0){
-            System.out.println("Invalid class, please enter a correct class");
+        while(Arrays.asList(CLASS_SELECTION).contains(classPick)){
+            System.out.print("Invalid class, please enter a correct class: ");
             classPick = scan.nextLine();
         }
         System.out.print("Would you like to sign in as a Student or Teacher (S/T) ");
