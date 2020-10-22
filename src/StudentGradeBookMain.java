@@ -45,11 +45,22 @@ public class StudentGradeBookMain {
         }
         return true;
     }
-    public static void writeFile(){
-        String fileName = "src/temp.txt";
+    public static void writeFile() throws IOException{
         String line;
-        FileReader fileReader = new FileReader(fileName);
+        // FileReader fileReader = new FileReader("src/temp.txt");
+        File gradeFile = new File("src/gradefile.csv");
 
+        if(!gradeFile.exists()){
+            gradeFile.createNewFile();
+        }
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
+            writer.write("");
+            writer.close();
+        } catch (IOException writerex){
+            System.out.println(writerex.getStackTrace());
+        }
+        /*
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         try {
@@ -60,11 +71,15 @@ public class StudentGradeBookMain {
             bufferedReader.close();
         }
         catch(FileNotFoundException ex) {
-            System.out.println("Unable to open file '" + fileName + "'");
+            System.out.println("Unable to open file '" + ex.getStackTrace() + "'");
         }
-        catch(IOException ex) {
-            System.out.println("Error reading file '" + fileName + "'");
+        catch(IOException e) {
+            System.out.println("Error reading file '" + e.getStackTrace() + "'");
+
+
         }
+
+         */
     }
     public static void addGrades(){
         Scanner scan = new Scanner(System.in);
@@ -97,7 +112,7 @@ public class StudentGradeBookMain {
         double overallGrade = quizGrade + examGrade + homeworkGrade + projectGrade;
         determineLetterGrade(overallGrade);
     }
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
 
         final String[] CLASS_SELECTION = {"Computational Math", "Graph Theory", "Differential Equations", "Linear Algebra", "Discrete Math"};
         Classroom introToProgramming = new Classroom();
