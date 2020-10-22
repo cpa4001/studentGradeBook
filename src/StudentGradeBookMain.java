@@ -95,10 +95,11 @@ public class StudentGradeBookMain {
         System.out.print("What class are you entering for: ");
         String classPick = scan.nextLine();
         
-        while(Arrays.asList(CLASS_SELECTION).contains(classPick)){
+        while(!Arrays.asList(CLASS_SELECTION).contains(classPick)){
             System.out.print("Invalid class, please enter a correct class: ");
             classPick = scan.nextLine();
         }
+        /*
         System.out.print("Would you like to sign in as a Student or Teacher (S/T) ");
         String signInOption = scan.nextLine();
         boolean passwordCorrect = false;
@@ -146,5 +147,7 @@ public class StudentGradeBookMain {
             }
 
         }
+
+         */
     }
 }
