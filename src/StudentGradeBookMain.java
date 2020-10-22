@@ -115,9 +115,10 @@ public class StudentGradeBookMain {
     public static void main(String[] args) throws IOException{
 
         final String[] CLASS_SELECTION = {"Computational Math", "Graph Theory", "Differential Equations", "Linear Algebra", "Discrete Math"};
-        Classroom introToProgramming = new Classroom();
         Scanner scan = new Scanner(System.in);
 
+        System.out.print("What is your first and last name: ");
+        String studentName = scan.nextLine();
         System.out.print("What class are you entering for: ");
         String classPick = scan.nextLine();
         boolean studentInput = true;
