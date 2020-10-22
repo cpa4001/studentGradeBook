@@ -45,8 +45,8 @@ public class StudentGradeBookMain {
         }
         return true;
     }
-    public static void writeFile() throws FileNotFoundException {
-        String fileName = "temp.txt";
+    public static void writeFile(){
+        String fileName = "src/temp.txt";
         String line;
         FileReader fileReader = new FileReader(fileName);
 
