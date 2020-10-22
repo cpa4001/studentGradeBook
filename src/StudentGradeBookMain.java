@@ -74,14 +74,24 @@ public class StudentGradeBookMain {
         int maxTotalPoints = 700;
 
         System.out.println("What was your overall quiz grade?");
-        double quizGrade = scan.nextDouble() * quizWeight;
+        double quizGrade = scan.nextDouble();
         scan.nextLine();
+        quizGrade *= quizWeight;
+
         System.out.println("What was your overall exam grade?");
-        double examGrade = scan.nextDouble() * examWeight;
+        double examGrade = scan.nextDouble();
+        scan.nextLine();
+        examGrade *= examWeight;
+
         System.out.println("What was your overall homework grade?");
-        double homeworkGrade = scan.nextDouble() * homeworkWeight;
+        double homeworkGrade = scan.nextDouble();
+        scan.nextLine();
+        homeworkGrade *= homeworkWeight;
+
         System.out.println("What was your overall project grade?");
-        double projectGrade = scan.nextDouble() * projectWeight;
+        double projectGrade = scan.nextDouble();
+        scan.nextLine();
+        projectGrade  *= projectWeight;
 
         double overallGrade = quizGrade + examGrade + homeworkGrade + projectGrade;
         determineLetterGrade(overallGrade);
@@ -94,10 +104,19 @@ public class StudentGradeBookMain {
 
         System.out.print("What class are you entering for: ");
         String classPick = scan.nextLine();
-        
-        while(!Arrays.asList(CLASS_SELECTION).contains(classPick)){
-            System.out.print("Invalid class, please enter a correct class: ");
-            classPick = scan.nextLine();
+        boolean studentInput = true;
+        String studentYesOrNo;
+        while(studentInput) {
+            while (!Arrays.asList(CLASS_SELECTION).contains(classPick)) {
+                System.out.print("Invalid class, please enter a correct class: ");
+                classPick = scan.nextLine();
+            }
+
+            System.out.print("Are you done entering grades for this class(y/n)");
+            studentYesOrNo = scan.nextLine();
+            if(studentYesOrNo.toLowerCase().equals("y")){
+
+            }
         }
         /*
         System.out.print("Would you like to sign in as a Student or Teacher (S/T) ");
