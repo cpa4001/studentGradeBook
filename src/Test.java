@@ -3,7 +3,9 @@ import java.time.format.DateTimeFormatter;
 public class Test {
     protected String testName;
     protected double testWeight;
+    //Gets current local date
     LocalDate date = LocalDate.now();
+    //Formats date to dd-MM-yyyy
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     public Test(){

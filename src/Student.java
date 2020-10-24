@@ -20,13 +20,6 @@ public class Student {
         studentFirstName = "NULL";
         studentLastName = "NULL";
     }
-
-    public Student(String studentName){
-        String[] studentNameArray = studentName.split(" ");
-        this.studentFirstName = studentNameArray[0];
-        this.studentLastName = studentNameArray[1];
-    }
-
     protected void determineOverallGrade(){
 
             /* determineLetterGrade will take in the final grade in decimal format
@@ -46,7 +39,7 @@ public class Student {
             }
     }
     public static boolean validateGradeWeight(double assignmentGrade, double assignmentWeight){
-        if(assignmentGrade > 100 || assignmentGrade < 0 || assignmentWeight > 100 || assignmentWeight < 0 ){
+        if(assignmentGrade > 100 || assignmentGrade < 0){
             return false;
         }
         return true;

@@ -3,7 +3,9 @@ import java.time.format.DateTimeFormatter;
 public class Assignment {
     protected String assignmentName;
     protected double assignmentWeight;
+    //Gets current local date
     LocalDate date = LocalDate.now();
+    //Formats date to dd-MM-yyyy
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     /*
         Assignment Weights
@@ -18,7 +20,6 @@ public class Assignment {
         this.assignmentName = "Class Assignment" + date.format(formatter);
     }
     public Assignment(String assignmentName){
-        //We will keep the weight all 25%
         this.assignmentName = assignmentName;
         this.assignmentWeight = 0.30;
         Classroom.assignmentsAndTests.add(assignmentName);
