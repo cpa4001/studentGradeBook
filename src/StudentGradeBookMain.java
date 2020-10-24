@@ -23,13 +23,14 @@ public class StudentGradeBookMain {
 
         //Creates a student object using the first two elements in studentFullName
         Student student = new Student(studentFullName[0],studentFullName[1]);
-        System.out.print("What class are you entering for: ");
-        String classSelected = scan.nextLine();
 
         boolean studentGradeInput = true;
         boolean studentGradeInputCurrentClass = true;
         String studentYesOrNo = "y";
+
         while(studentGradeInput) {
+            System.out.print("What class are you entering for: ");
+            String classSelected = scan.nextLine();
             while (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected)) {
                 //while the class selected by the student is not in available classes
                 // the console will prompt for correct class
