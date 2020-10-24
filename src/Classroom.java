@@ -5,6 +5,7 @@ public class Classroom {
     public static ArrayList<ArrayList<Double>> gradeMatrix = new ArrayList<ArrayList<Double>>();
 
     public Classroom(){
+        //Dummy values for students.
         students.add("Christian Apostoli");
         students.add("Lebron James");
         students.add("Kanye East");

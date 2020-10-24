@@ -19,6 +19,9 @@ public class Teacher {
         this.className = className;
     }
     protected void teacherDecision(int input){
+        /* Take in teacher's command and call particular
+            function to perform desired action.
+         */
         switch(input){
             case 1:
                 //printAllStudentNames();
