@@ -22,7 +22,7 @@ public class Assignment {
     public Assignment(String assignmentName){
         this.assignmentName = assignmentName;
         this.assignmentWeight = 0.30;
-        Classroom.assignmentsAndTests.add(assignmentName);
+        //Classroom.assignmentsAndTests.add(assignmentName);
     }
     /*
     public Assignment(String assignmentName, double assignmentWeight){

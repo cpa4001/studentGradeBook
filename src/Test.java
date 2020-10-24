@@ -9,17 +9,13 @@ public class Test {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     public Test(){
+        //testWeight
         this.testName = "Midterm " + date.format(formatter);
-        this.testWeight = 0.70;
-        Classroom.assignmentsAndTests.add(testName);
+        this.testWeight = 0.30;
     }
     public Test(String testName){
         this.testName = testName;
-        this.testWeight = 0.70;
-        Classroom.assignmentsAndTests.add(testName);
-    }
-    public  Test(String testName, double testWeight){
-        this.testName = testName;
-        this.testWeight = testWeight;
+        this.testWeight = 0.30;
+        //Classroom.assignmentsAndTests.add(testName);
     }
 }
