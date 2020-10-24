@@ -134,6 +134,12 @@ public class StudentGradeBookMain {
             if(studentYesOrNo.toLowerCase().equals("y")){
                 studentInput = false;
             }
+            System.out.println("Are you done entering grades? (y/n)");
+            studentYesOrNo = scan.nextLine();
+
+            if(studentYesOrNo.toLowerCase().equals("n")){
+                studentInput = false;
+            }
         }
         /*
         System.out.print("Would you like to sign in as a Student or Teacher (S/T) ");
