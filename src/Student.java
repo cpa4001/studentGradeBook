@@ -13,13 +13,18 @@ public class Student {
     public Student(String studentFirstName, String studentLastName){
         this.studentFirstName = studentFirstName;
         this.studentLastName = studentLastName;
-        Classroom.students.add(studentFirstName + " " + studentLastName);
     }
 
     public Student(){
         this.overallGrade = 0;
         studentFirstName = "NULL";
         studentLastName = "NULL";
+    }
+
+    public Student(String studentName){
+        String[] studentNameArray = studentName.split(" ");
+        this.studentFirstName = studentNameArray[0];
+        this.studentLastName = studentNameArray[1];
     }
 
     protected void determineOverallGrade(){

@@ -17,6 +17,11 @@ public class StudentGradeBookMain {
 
         System.out.print("What is your first and last name: ");
         String studentName = scan.nextLine();
+        String[] arr = studentName.split(" ");
+
+        System.out.println(arr[0]);
+
+        Student student = new Student();
         System.out.print("What class are you entering for: ");
         String classPick = scan.nextLine();
         boolean studentInput = true;
