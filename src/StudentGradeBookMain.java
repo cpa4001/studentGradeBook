@@ -31,28 +31,30 @@ public class StudentGradeBookMain {
         String studentYesOrNo = "y";
         while(studentGradeInput) {
             while (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected)) {
-                //while the class selected by the student is available/exists, the console will prompt for correct class
+                //while the class selected by the student is not in available classes
+                // the console will prompt for correct class
                 System.out.print("Invalid class, please enter a correct class: ");
                 classSelected = scan.nextLine();
             }
-            while(studentGradeInputCurrentClass){
-                System.out.print("Are you done entering grades for this class(y/n)");
-                studentYesOrNo = scan.nextLine();
-                //Student's choice of y will ex
-                if(studentYesOrNo.toLowerCase().equals("y")){
-                    studentGradeInput = false;
-                } /* else{
 
-                }
-                */
-            }
+            //The student will be prompted for the grades of the current class until
+            //they answer "n"
+            System.out.print("Are you done entering grades for this class(y/n)");
+            studentYesOrNo = scan.nextLine();
+            if(studentYesOrNo.toLowerCase().equals("y")){
+                studentGradeInput = false;
+            } /* else{
 
-            System.out.println("Are you done entering grades? (y/n)");
+            }*/
+
+            //Student's response will keep program running or close program.
+            System.out.print("Are you done entering grades for all classes? (y/n)");
             studentYesOrNo = scan.nextLine();
 
             if(studentYesOrNo.toLowerCase().equals("y")){
                 studentGradeInput = false;
             }
+
         }
     }
 }
