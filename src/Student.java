@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 public class Student {
 
@@ -10,49 +14,12 @@ public class Student {
         this.studentFirstName = studentFirstName;
         this.studentLastName = studentLastName;
         Classroom.students.add(studentFirstName + " " + studentLastName);
-
     }
 
     public Student(){
         this.overallGrade = 0;
         studentFirstName = "NULL";
         studentLastName = "NULL";
-    }
-
-    protected void studentAction(){
-        Scanner scan  = new Scanner(System.in);
-        System.out.println("-----------------------");
-        System.out.println("Please enter a command (1-6)");
-        System.out.println("(1) Show individual grades.");
-        System.out.println("(2) Show overall grade.");
-        this.studentCommand = scan.nextInt();
-        scan.nextLine();
-        System.out.println("-----------------------");
-
-        boolean validCommand = false;
-        while(!validCommand){
-            if (this.studentCommand > 7 || this.studentCommand < 1){
-                System.out.println("Not a valid command, please enter a number (1-7): ");
-                this.studentCommand = scan.nextInt();
-                scan.nextLine();
-            }else if (this.studentCommand != 7) {
-                studentSwitch();
-            }else{
-                validCommand = true;
-                System.out.println("Have a nice day Professor.");
-            }
-        }
-    }
-
-    protected void studentSwitch(){
-        switch(this.studentCommand){
-            case 1:
-                break;
-            case 2:
-                break;
-            default:
-                break;
-        }
     }
 
     protected void determineOverallGrade(){
@@ -73,6 +40,77 @@ public class Student {
                 System.out.println("Your overall grade was a F");
             }
     }
+    public static boolean validateGradeWeight(double assignmentGrade, double assignmentWeight){
+        if(assignmentGrade > 100 || assignmentGrade < 0 || assignmentWeight > 100 || assignmentWeight < 0 ){
+            return false;
+        }
+        return true;
+    }
+    public static void writeFile() throws IOException {
+        String line;
+        // FileReader fileReader = new FileReader("src/temp.txt");
+        File gradeFile = new File("src/gradefile.csv");
+
+        if(!gradeFile.exists()){
+            gradeFile.createNewFile();
+        }
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
+            writer.write("");
+            writer.close();
+        } catch (IOException writerex){
+            System.out.println(writerex.getStackTrace());
+        }
+        /*
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        try {
+            while((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+            //addGrades();
+            bufferedReader.close();
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println("Unable to open file '" + ex.getStackTrace() + "'");
+        }
+        catch(IOException e) {
+            System.out.println("Error reading file '" + e.getStackTrace() + "'");
 
 
+        }
+
+         */
+    }
+    public static void addGrades(){
+        Scanner scan = new Scanner(System.in);
+        double quizWeight = 0.2;
+        double examWeight = 0.3;
+        double homeworkWeight = 0.25;
+        double projectWeight = 0.25;
+        int maxTotalPoints = 700;
+
+        System.out.println("What was your overall quiz grade?");
+        double quizGrade = scan.nextDouble();
+        scan.nextLine();
+        quizGrade *= quizWeight;
+
+        System.out.println("What was your overall exam grade?");
+        double examGrade = scan.nextDouble();
+        scan.nextLine();
+        examGrade *= examWeight;
+
+        System.out.println("What was your overall homework grade?");
+        double homeworkGrade = scan.nextDouble();
+        scan.nextLine();
+        homeworkGrade *= homeworkWeight;
+
+        System.out.println("What was your overall project grade?");
+        double projectGrade = scan.nextDouble();
+        scan.nextLine();
+        projectGrade  *= projectWeight;
+
+        double overallGrade = quizGrade + examGrade + homeworkGrade + projectGrade;
+        //determineLetterGrade(overallGrade);
+    }
 }
