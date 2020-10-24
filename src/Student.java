@@ -47,7 +47,7 @@ public class Student {
     public static void writeFile() throws IOException {
         String line;
         // FileReader fileReader = new FileReader("src/temp.txt");
-        File gradeFile = new File("src/gradefile.csv");
+        File gradeFile = new File("src/gradefile.txt");
 
         if(!gradeFile.exists()){
             gradeFile.createNewFile();
