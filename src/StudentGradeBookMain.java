@@ -12,16 +12,15 @@ import java.io.*;
 public class StudentGradeBookMain {
     public static void main(String[] args) throws IOException{
 
-        final String[] CLASS_SELECTION = {"Computational Math", "Graph Theory", "Differential Equations", "Linear Algebra", "Discrete Math"};
+        final String[] CLASS_SELECTION = {"Computational Math", "Graph Theory", "Differential Equations",
+                                           "Linear Algebra", "Discrete Math", "Math History", "Statistics"};
         Scanner scan = new Scanner(System.in);
 
         System.out.print("What is your first and last name: ");
         String studentName = scan.nextLine();
-        String[] arr = studentName.split(" ");
+        String[] studentFullName = studentName.split(" ");
 
-        System.out.println(arr[0]);
-
-        Student student = new Student();
+        Student student = new Student(studentFullName[0],studentFullName[1]);
         System.out.print("What class are you entering for: ");
         String classPick = scan.nextLine();
         boolean studentInput = true;
