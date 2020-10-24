@@ -88,22 +88,22 @@ public class Student {
         double projectWeight = 0.25;
         int maxTotalPoints = 700;
 
-        System.out.println("What was your overall quiz grade?");
+        System.out.print("What was your overall quiz grade?");
         double quizGrade = scan.nextDouble();
         scan.nextLine();
         quizGrade *= quizWeight;
 
-        System.out.println("What was your overall exam grade?");
+        System.out.print("What was your overall exam grade?");
         double examGrade = scan.nextDouble();
         scan.nextLine();
         examGrade *= examWeight;
 
-        System.out.println("What was your overall homework grade?");
+        System.out.print("What was your overall homework grade?");
         double homeworkGrade = scan.nextDouble();
         scan.nextLine();
         homeworkGrade *= homeworkWeight;
 
-        System.out.println("What was your overall project grade?");
+        System.out.print("What was your overall project grade?");
         double projectGrade = scan.nextDouble();
         scan.nextLine();
         projectGrade  *= projectWeight;
