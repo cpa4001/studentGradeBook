@@ -1,13 +1,11 @@
 public class Teacher {
     protected String teacherFirstName;
     protected String teacherLastName;
- // public String teacherId;
     public String className;
 
     public Teacher() {
-        this.teacherFirstName = "Josiah";
-        this.teacherLastName = "Greenwell";
-   //   this.teacherId = "0015";
+        this.teacherFirstName = "NULL";
+        this.teacherLastName = "NULL";
         this.className = "COP 2006";
     }
     public Teacher(String teacherFirstName, String teacherLastName){
