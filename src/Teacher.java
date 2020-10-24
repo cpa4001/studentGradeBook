@@ -16,16 +16,15 @@ public class Teacher {
     public Teacher(String teacherFirstName, String teacherLastName, String className){
         this.teacherFirstName = teacherFirstName;
         this.teacherLastName = teacherLastName;
-      //this.teacherId = teacherId;
         this.className = className;
     }
     protected void teacherDecision(int input){
         switch(input){
             case 1:
-                printAllStudentNames();
+                //printAllStudentNames();
                 break;
             case 2:
-                printGradeMatrix();
+                //printGradeMatrix();
                 break;
             case 3:
                 break;
@@ -38,6 +37,7 @@ public class Teacher {
         }
 
     }
+    /*
     protected void printAllStudentNames() {
         for (String name : Classroom.students) {
             System.out.println(name);
@@ -55,7 +55,7 @@ public class Teacher {
             System.out.println(Classroom.students.get(i) + " " + Classroom.gradeMatrix.get(i));
         }
     }
-    /*
+
     protected void addAssignment(String assignmentName, String assignmentWeight){
 
     }
