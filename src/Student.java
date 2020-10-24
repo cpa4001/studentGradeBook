@@ -31,20 +31,20 @@ public class Student {
                 System.out.println("Your overall grade is an A!");
             }else if (this.overallGrade >= 80.00){
                 System.out.println("Your overall grade is a B");
-                gradeDifference = this.overallGrade - 90.00;
-                System.out.println("You are " + gradeDifference + " percent from an A");
+                gradeDifference = 90.00 - this.overallGrade;
+                System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from an A");
             }else if (this.overallGrade >= 70.00){
                 System.out.println("Your overall grade is a C");
-                gradeDifference = this.overallGrade - 80.00;
-                System.out.println("You are " + gradeDifference + " percent from a B");
+                gradeDifference = 80.00 - this.overallGrade;
+                System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a B");
             } else if(this.overallGrade >= 60.00){
                 System.out.println("Your overall grade is a D");
-                gradeDifference = this.overallGrade - 70.00;
-                System.out.println("You are " + gradeDifference + " percent from a C");
+                gradeDifference = 70.00 - this.overallGrade;
+                System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a C");
             }else {
                 System.out.println("Your overall grade is a F");
-                gradeDifference = this.overallGrade - 60.00;
-                System.out.println("You are " + gradeDifference + " percent from a D");
+                gradeDifference = 60.00 - this.overallGrade;
+                System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a D");
                 System.out.print("You might want to consider withdrawing from the course.");
             }
     }

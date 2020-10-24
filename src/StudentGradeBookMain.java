@@ -41,7 +41,7 @@ public class StudentGradeBookMain {
             student.addGrades();
             //The student will be prompted for the grades of the current class until
             //they answer "n"
-            System.out.print("Are you done entering grades for this class(y/n)");
+            System.out.print("Are you done entering grades for this class(y/n) ");
             studentYesOrNo = scan.nextLine();
             if(studentYesOrNo.toLowerCase().equals("y")){
                 studentGradeInput = false;
@@ -50,7 +50,7 @@ public class StudentGradeBookMain {
             }*/
 
             //Student's response will keep program running or close program.
-            System.out.print("Are you done entering grades for all classes? (y/n)");
+            System.out.print("Are you done entering grades for all classes? (y/n) ");
             studentYesOrNo = scan.nextLine();
 
             if(studentYesOrNo.toLowerCase().equals("y")){
