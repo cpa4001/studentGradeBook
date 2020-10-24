@@ -26,13 +26,13 @@ public class Student {
              * and determine the letter grade for that student.
              * double overallGrade: the students final grade in decimal format
              */
-            if(overallGrade > 89.00){
+            if(this.overallGrade > 89.00){
                 System.out.println("Your overall grade was an A!");
-            }else if (overallGrade > 79.00){
+            }else if (this.overallGrade > 79.00){
                 System.out.println("Your overall grade was a B");
-            }else if (overallGrade > 69.00){
+            }else if (this.overallGrade > 69.00){
                 System.out.println("Your overall grade was a C");
-            } else if(overallGrade > 59.00){
+            } else if(this.overallGrade > 59.00){
                 System.out.println("Your overall grade was a D");
             }else {
                 System.out.println("Your overall grade was a F");
@@ -80,7 +80,7 @@ public class Student {
 
          */
     }
-    public static void addGrades(){
+    protected void addGrades(){
         Scanner scan = new Scanner(System.in);
         double quizWeight = 0.2;
         double examWeight = 0.3;
@@ -108,7 +108,7 @@ public class Student {
         scan.nextLine();
         projectGrade  *= projectWeight;
 
-        double overallGrade = quizGrade + examGrade + homeworkGrade + projectGrade;
-        //determineLetterGrade(overallGrade);
+        this.overallGrade = quizGrade + examGrade + homeworkGrade + projectGrade;
+        determineOverallGrade();
     }
 }

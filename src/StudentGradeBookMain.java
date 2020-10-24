@@ -13,7 +13,7 @@ public class StudentGradeBookMain {
     public static void main(String[] args) throws IOException{
 
         final String[] AVAILABLE_CLASSES = {"Computational Math", "Graph Theory", "Differential Equations",
-                                           "Linear Algebra", "Discrete Math", "Math History", "Statistics"};
+                                           "Linear Algebra", "Discrete Math", "Math History", "Statistics", "COP 2006"};
         Scanner scan = new Scanner(System.in);
 
         System.out.print("What is your first and last name: ");
@@ -38,6 +38,7 @@ public class StudentGradeBookMain {
                 classSelected = scan.nextLine();
             }
 
+            student.addGrades();
             //The student will be prompted for the grades of the current class until
             //they answer "n"
             System.out.print("Are you done entering grades for this class(y/n)");
