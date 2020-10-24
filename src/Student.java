@@ -26,16 +26,26 @@ public class Student {
              * and determine the letter grade for that student.
              * double overallGrade: the students final grade in decimal format
              */
-            if(this.overallGrade > 89.00){
-                System.out.println("Your overall grade was an A!");
-            }else if (this.overallGrade > 79.00){
-                System.out.println("Your overall grade was a B");
-            }else if (this.overallGrade > 69.00){
-                System.out.println("Your overall grade was a C");
-            } else if(this.overallGrade > 59.00){
-                System.out.println("Your overall grade was a D");
+        double gradeDifference;
+            if(this.overallGrade >= 90.00){
+                System.out.println("Your overall grade is an A!");
+            }else if (this.overallGrade >= 80.00){
+                System.out.println("Your overall grade is a B");
+                gradeDifference = this.overallGrade - 90.00;
+                System.out.println("You are " + gradeDifference + " percent from an A");
+            }else if (this.overallGrade >= 70.00){
+                System.out.println("Your overall grade is a C");
+                gradeDifference = this.overallGrade - 80.00;
+                System.out.println("You are " + gradeDifference + " percent from a B");
+            } else if(this.overallGrade >= 60.00){
+                System.out.println("Your overall grade is a D");
+                gradeDifference = this.overallGrade - 70.00;
+                System.out.println("You are " + gradeDifference + " percent from a C");
             }else {
-                System.out.println("Your overall grade was a F");
+                System.out.println("Your overall grade is a F");
+                gradeDifference = this.overallGrade - 60.00;
+                System.out.println("You are " + gradeDifference + " percent from a D");
+                System.out.print("You might want to consider withdrawing from the course.");
             }
     }
     public static boolean validateGradeWeight(double assignmentGrade, double assignmentWeight){
@@ -88,22 +98,22 @@ public class Student {
         double projectWeight = 0.25;
         int maxTotalPoints = 700;
 
-        System.out.print("What was your overall quiz grade?");
+        System.out.print("What was your overall quiz grade? ");
         double quizGrade = scan.nextDouble();
         scan.nextLine();
         quizGrade *= quizWeight;
 
-        System.out.print("What was your overall exam grade?");
+        System.out.print("What was your overall exam grade? ");
         double examGrade = scan.nextDouble();
         scan.nextLine();
         examGrade *= examWeight;
 
-        System.out.print("What was your overall homework grade?");
+        System.out.print("What was your overall homework grade? ");
         double homeworkGrade = scan.nextDouble();
         scan.nextLine();
         homeworkGrade *= homeworkWeight;
 
-        System.out.print("What was your overall project grade?");
+        System.out.print("What was your overall project grade? ");
         double projectGrade = scan.nextDouble();
         scan.nextLine();
         projectGrade  *= projectWeight;
