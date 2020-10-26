@@ -14,6 +14,7 @@ public class StudentGradeBookMain {
 
         final String[] AVAILABLE_CLASSES = {"COMPUTATIONAL MATH", "GRAPH THEORY", "DIFFERENTIAL EQUATIONS",
                                            "LINEAR ALGEBRA", "DISCRETE MATH", "MATH HISTORY", "STATISTICS", "COP 2006"};
+        ArrayList<String> previouslySelectedClasses = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
 
         System.out.print("What is your first and last name: ");
@@ -39,7 +40,11 @@ public class StudentGradeBookMain {
                 //while the class selected by the student is not in available classes
                 // the console will prompt for correct class
                 System.out.print("Invalid class, please enter a correct class: ");
-                classSelected = scan.nextLine();
+                classSelected = scan.nextLine().toUpperCase();
+            }
+            while(previouslySelectedClasses.contains(classSelected)){
+                System.out.print("This class has already been selected, please enter a new class: ");
+                classSelected = scan.nextLine().toUpperCase();
             }
 
             student.getCategoryGrades();
@@ -50,9 +55,10 @@ public class StudentGradeBookMain {
             if(studentYesOrNo.toLowerCase().equals("y")){
                 studentGradeInputCurrentClass = false;
                 courseSelectedCounter++;
-            } /* else{
-
-            }*/
+                previouslySelectedClasses.add(classSelected);
+            } else{
+                courseSelectedCounter++;
+            }
 
             //Student's response will keep program running or close program.
             System.out.print("Are you done entering grades for all classes? (y/n) ");
@@ -64,7 +70,7 @@ public class StudentGradeBookMain {
                 System.out.println("Have a nice day.");
             }
 
-            if(courseSelectedCounter > 8){
+            if(courseSelectedCounter == 3){
                 System.out.println("There are no more classes to enter grades for.");
                 System.out.println("Have a nice day.");
                 studentGradeInput = false;
