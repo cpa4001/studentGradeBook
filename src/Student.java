@@ -54,7 +54,7 @@ public class Student {
         }
         return true;
     }
-    public static void writeFile() throws IOException {
+    public void writeFile() throws IOException {
         String line;
         // FileReader fileReader = new FileReader("src/temp.txt");
         File gradeFile = new File("src/gradefile.txt");
@@ -64,7 +64,8 @@ public class Student {
         }
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
-            writer.write("");
+            writer.write("Overall grade for "+ this.studentFirstName +
+                         this.studentLastName + String.valueOf(this.overallGrade));
             writer.close();
         } catch (IOException writerex){
             System.out.println(writerex.getStackTrace());
