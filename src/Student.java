@@ -29,7 +29,7 @@ public class Student {
              */
         double gradeDifference;
             if(this.overallGrade >= 90.00){
-                System.out.println("Your overall grade is an A for this course.");
+                System.out.println("Congratulations, your overall grade is an A for this course.");
 
             }else if (this.overallGrade >= 80.00){
                 System.out.println("Your overall grade is a B for this course.");
@@ -50,7 +50,7 @@ public class Student {
                 System.out.println("Your overall grade is a F");
                 gradeDifference = 60.00 - this.overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a D");
-                System.out.print("You might want to consider withdrawing from the course.");
+                System.out.println("You might want to consider withdrawing from the course.");
             }
     }
     public static boolean validateGradeWeight(double assignmentGrade, double assignmentWeight){

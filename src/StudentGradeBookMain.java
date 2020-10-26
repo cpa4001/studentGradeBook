@@ -28,9 +28,13 @@ public class StudentGradeBookMain {
         boolean studentGradeInputCurrentClass = true;
         String studentYesOrNo = "y";
 
+        int courseSelectedCounter = 0;
         while(studentGradeInput) {
-            System.out.print("What class are you entering for: ");
+
+            System.out.println(Arrays.toString(AVAILABLE_CLASSES));
+            System.out.print("Please select a class out of the available courses above: ");
             String classSelected = scan.nextLine().toUpperCase();
+            System.out.println("----------------------------------------");
             while (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected)) {
                 //while the class selected by the student is not in available classes
                 // the console will prompt for correct class
@@ -41,10 +45,11 @@ public class StudentGradeBookMain {
             student.getCategoryGrades();
             //The student will be prompted for the grades of the current class until
             //they answer "n"
-            System.out.print("Are you done entering grades for this class(y/n) ");
+            System.out.print("Are you done entering grades for this class? (y/n) ");
             studentYesOrNo = scan.nextLine();
             if(studentYesOrNo.toLowerCase().equals("y")){
-                studentGradeInput = false;
+                studentGradeInputCurrentClass = false;
+                courseSelectedCounter++;
             } /* else{
 
             }*/
@@ -52,11 +57,18 @@ public class StudentGradeBookMain {
             //Student's response will keep program running or close program.
             System.out.print("Are you done entering grades for all classes? (y/n) ");
             studentYesOrNo = scan.nextLine();
+            System.out.println("----------------------------------------");
 
             if(studentYesOrNo.toLowerCase().equals("y")){
                 studentGradeInput = false;
+                System.out.println("Have a nice day.");
             }
 
+            if(courseSelectedCounter > 8){
+                System.out.println("There are no more classes to enter grades for.");
+                System.out.println("Have a nice day.");
+                studentGradeInput = false;
+            }
         }
     }
 }
