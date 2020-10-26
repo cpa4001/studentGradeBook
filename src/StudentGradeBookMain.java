@@ -12,8 +12,8 @@ import java.io.*;
 public class StudentGradeBookMain {
     public static void main(String[] args) throws IOException{
 
-        final String[] AVAILABLE_CLASSES = {"Computational Math", "Graph Theory", "Differential Equations",
-                                           "Linear Algebra", "Discrete Math", "Math History", "Statistics", "COP 2006"};
+        final String[] AVAILABLE_CLASSES = {"COMPUTATIONAL MATH", "GRAPH THEORY", "DIFFERENTIAL EQUATIONS",
+                                           "LINEAR ALGEBRA", "DISCRETE MATH", "MATH HISTORY", "STATISTICS", "COP 2006"};
         Scanner scan = new Scanner(System.in);
 
         System.out.print("What is your first and last name: ");
@@ -30,7 +30,7 @@ public class StudentGradeBookMain {
 
         while(studentGradeInput) {
             System.out.print("What class are you entering for: ");
-            String classSelected = scan.nextLine();
+            String classSelected = scan.nextLine().toUpperCase();
             while (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected)) {
                 //while the class selected by the student is not in available classes
                 // the console will prompt for correct class
@@ -38,7 +38,7 @@ public class StudentGradeBookMain {
                 classSelected = scan.nextLine();
             }
 
-            student.addGrades();
+            student.getCategoryGrades();
             //The student will be prompted for the grades of the current class until
             //they answer "n"
             System.out.print("Are you done entering grades for this class(y/n) ");

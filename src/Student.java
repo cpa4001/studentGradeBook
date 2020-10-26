@@ -20,27 +20,32 @@ public class Student {
         studentFirstName = "NULL";
         studentLastName = "NULL";
     }
-    protected void determineOverallGrade(){
+    protected void determineLetterGradeAndDifference(){
 
             /* determineLetterGrade will take in the final grade in decimal format
-             * and determine the letter grade for that student.
+             * and determine the letter grade for that student. It will also calculate
+             * the percentage needed to earn the next highest grade
              * double overallGrade: the students final grade in decimal format
              */
         double gradeDifference;
             if(this.overallGrade >= 90.00){
-                System.out.println("Your overall grade is an A!");
+                System.out.println("Your overall grade is an A for this course.");
+
             }else if (this.overallGrade >= 80.00){
-                System.out.println("Your overall grade is a B");
+                System.out.println("Your overall grade is a B for this course.");
                 gradeDifference = 90.00 - this.overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from an A");
+
             }else if (this.overallGrade >= 70.00){
-                System.out.println("Your overall grade is a C");
+                System.out.println("Your overall grade is a C for this class.");
                 gradeDifference = 80.00 - this.overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a B");
+
             } else if(this.overallGrade >= 60.00){
                 System.out.println("Your overall grade is a D");
                 gradeDifference = 70.00 - this.overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a C");
+
             }else {
                 System.out.println("Your overall grade is a F");
                 gradeDifference = 60.00 - this.overallGrade;
@@ -57,7 +62,7 @@ public class Student {
     public void writeFile() throws IOException {
         String line;
         // FileReader fileReader = new FileReader("src/temp.txt");
-        File gradeFile = new File("src/gradefile.txt");
+        File gradeFile = new File("src/gradebook.txt");
 
         if(!gradeFile.exists()){
             gradeFile.createNewFile();
@@ -91,7 +96,7 @@ public class Student {
 
          */
     }
-    protected void addGrades(){
+    protected void getCategoryGrades(){
         Scanner scan = new Scanner(System.in);
         double quizWeight = 0.2;
         double examWeight = 0.3;
@@ -120,6 +125,6 @@ public class Student {
         projectGrade  *= projectWeight;
 
         this.overallGrade = quizGrade + examGrade + homeworkGrade + projectGrade;
-        determineOverallGrade();
+        determineLetterGradeAndDifference();
     }
 }
