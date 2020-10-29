@@ -1,7 +1,4 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 public class Student {
 
@@ -75,7 +72,10 @@ public class Student {
         } catch (IOException writerex){
             System.out.println(writerex.getStackTrace());
         }
-        /*
+    }
+    protected void readFile() throws FileNotFoundException {
+        String line;
+        FileReader fileReader = new FileReader("src/gradebook.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         try {
@@ -93,10 +93,9 @@ public class Student {
 
 
         }
-
-         */
     }
-    protected void getCategoryGrades(){
+
+    protected void getCategoryGrades() throws IOException {
         Scanner scan = new Scanner(System.in);
         double quizWeight = 0.2;
         double examWeight = 0.3;
@@ -126,5 +125,6 @@ public class Student {
 
         this.overallGrade = quizGrade + examGrade + homeworkGrade + projectGrade;
         determineLetterGradeAndDifference();
+        writeFile();
     }
 }
