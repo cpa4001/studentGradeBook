@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.Scanner;
+import java.lang.Math;
 public class Student {
 
     public String studentFirstName;

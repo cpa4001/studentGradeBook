@@ -70,7 +70,7 @@ public class StudentGradeBookMain {
                 System.out.println("Have a nice day.");
             }
 
-            if(courseSelectedCounter == 3){
+            if(courseSelectedCounter == 8){
                 System.out.println("There are no more classes to enter grades for.");
                 System.out.println("Have a nice day.");
                 studentGradeInput = false;
