@@ -1,8 +1,8 @@
-/*
-  Student Grade Book acts as an interface where students can sign in and view grades, and
-  where teachers can sign in, edit, and assign grades.
-  Author: Christian Apostoli
-  Date: 10/16/2020
+/**
+  * Student Grade Book acts as an interface where students can sign in and view grades, and
+  * where teachers can sign in, edit, and assign grades.
+  * Author: Christian Apostoli
+  * Date: 10/30/2020
 
   ADD ALL JAVADOCS ON GITHUB
  */

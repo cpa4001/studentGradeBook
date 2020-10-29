@@ -16,10 +16,16 @@ public class Assignment {
      */
 
     public Assignment(){
+        /** Constructs an assignment object with name as "Class Assignment dd-MM-yyyy"
+         *
+         */
         //If no assignment name is given, name will be generated for current date
         this.assignmentName = "Class Assignment" + date.format(formatter);
     }
     public Assignment(String assignmentName){
+        /** Constructs an assignment object with passed assignment name
+         *  and predefined weight of 30%
+         */
         this.assignmentName = assignmentName;
         this.assignmentWeight = 0.30;
         //Classroom.assignmentsAndTests.add(assignmentName);

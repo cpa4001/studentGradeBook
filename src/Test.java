@@ -9,6 +9,9 @@ public class Test {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     public Test(){
+        /** Constructs a text object with name, Midterm dd-MM-yyyy,
+         *  and weight of 30%.
+         */
         //testWeight
         this.testName = "Midterm " + date.format(formatter);
         this.testWeight = 0.30;

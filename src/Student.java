@@ -8,6 +8,10 @@ public class Student {
     int studentCommand;
 
     public Student(String studentFirstName, String studentLastName){
+        /** Constructs a student object using passed name.
+         * @param studentFirstName
+         * @param studentLastName
+         */
         this.studentFirstName = studentFirstName;
         this.studentLastName = studentLastName;
     }
