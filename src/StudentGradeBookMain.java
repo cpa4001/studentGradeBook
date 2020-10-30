@@ -12,6 +12,7 @@ import java.io.*;
 public class StudentGradeBookMain {
     public static void main(String[] args) throws IOException{
 
+        //Courses that the student can pick to calculate their overall grade
         final String[] AVAILABLE_CLASSES = {"COMPUTATIONAL MATH", "GRAPH THEORY", "DIFFERENTIAL EQUATIONS",
                                            "LINEAR ALGEBRA", "DISCRETE MATH", "MATH HISTORY", "STATISTICS", "COP 2006"};
         ArrayList<String> previouslySelectedClasses = new ArrayList<>();
@@ -25,10 +26,13 @@ public class StudentGradeBookMain {
         //Creates a student object using the first two elements in studentFullName
         Student student = new Student(studentFullName[0],studentFullName[1]);
 
+        //Flag to see if the student is still inputting grades
         boolean studentGradeInput = true;
+        //Flag for the current class
         boolean studentGradeInputCurrentClass = true;
         String studentYesOrNo = "y";
 
+        //Counter increments by 1 for every class selected
         int courseSelectedCounter = 0;
         while(studentGradeInput) {
 
@@ -36,6 +40,8 @@ public class StudentGradeBookMain {
             System.out.print("Please select a class out of the available courses above: ");
             String classSelected = scan.nextLine().toUpperCase();
             System.out.println("----------------------------------------");
+            System.out.println("ENTERING GRADES FOR " + classSelected);
+
             while (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected)) {
                 //while the class selected by the student is not in available classes
                 // the console will prompt for correct class
@@ -50,6 +56,7 @@ public class StudentGradeBookMain {
             student.getCategoryGrades();
             //The student will be prompted for the grades of the current class until
             //they answer "n"
+            /* Will be used in final version when asking for list of values
             System.out.print("Are you done entering grades for this class? (y/n) ");
             studentYesOrNo = scan.nextLine();
             if(studentYesOrNo.toLowerCase().equals("y")){
@@ -59,6 +66,9 @@ public class StudentGradeBookMain {
             } else{
                 courseSelectedCounter++;
             }
+            */
+            courseSelectedCounter++;
+            previouslySelectedClasses.add(classSelected);
 
             //Student's response will keep program running or close program.
             System.out.print("Are you done entering grades for all classes? (y/n) ");
