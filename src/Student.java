@@ -64,15 +64,15 @@ public class Student {
          */
         String line;
         // FileReader fileReader = new FileReader("src/temp.txt");
-        File gradeFile = new File("src/gradebook.txt");
+        File gradeFile = new File("src/temp.txt");
 
         if(!gradeFile.exists()){
             gradeFile.createNewFile();
         }
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
-            writer.write("Overall grade for "+ this.studentFirstName +
-                         this.studentLastName + String.valueOf(this.overallGrade));
+            writer.write("Overall grade for "+ this.studentFirstName + " " +
+                         this.studentLastName + " " + String.valueOf(this.overallGrade));
             writer.close();
         } catch (IOException writerex){
             System.out.println(writerex.getStackTrace());
