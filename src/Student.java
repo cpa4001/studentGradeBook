@@ -3,9 +3,9 @@ import java.util.Scanner;
 import java.lang.Math;
 public class Student {
 
-    public String studentFirstName;
-    public String studentLastName;
-    public double overallGrade;
+    private String studentFirstName;
+    private String studentLastName;
+    private double overallGrade;
     int studentCommand;
 
     public Student(String studentFirstName, String studentLastName){
@@ -23,11 +23,8 @@ public class Student {
         studentLastName = "NULL";
     }
     protected void determineLetterGradeAndDifference(){
-
-            /* determineLetterGrade will take in the final grade in decimal format
-             * and determine the letter grade for that student. It will also calculate
+        /** Determines the letter grade for the student. Calculates
              * the percentage needed to earn the next highest grade
-             * double overallGrade: the students final grade in decimal format
              */
         double gradeDifference;
             if(this.overallGrade >= 90.00){
@@ -62,6 +59,9 @@ public class Student {
         return true;
     }
     public void writeFile() throws IOException {
+        /** Writes the overall category grades to
+         * gradebook.txt file.
+         */
         String line;
         // FileReader fileReader = new FileReader("src/temp.txt");
         File gradeFile = new File("src/gradebook.txt");
@@ -101,6 +101,11 @@ public class Student {
     }
 
     protected void getCategoryGrades() throws IOException {
+        /** Prompts the student to enter their grades for each category.
+         *  Calculates the weighted grade and overall class grade
+         *  Calls the determineLetterGradeAndDifference() and
+         *  writeFile() methods
+         */
         Scanner scan = new Scanner(System.in);
         double quizWeight = 0.2;
         double examWeight = 0.3;
