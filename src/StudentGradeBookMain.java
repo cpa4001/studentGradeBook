@@ -38,8 +38,6 @@ public class StudentGradeBookMain {
             System.out.println(Arrays.toString(AVAILABLE_CLASSES));
             System.out.print("Please select a class out of the available courses above: ");
             String classSelected = scan.nextLine().toUpperCase();
-            System.out.println("----------------------------------------");
-            System.out.println("ENTERING GRADES FOR " + classSelected);
 
             while (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected)) {
                 //while the class selected by the student is not in available classes
@@ -52,6 +50,8 @@ public class StudentGradeBookMain {
                 classSelected = scan.nextLine().toUpperCase();
             }
 
+            System.out.println("----------------------------------------");
+            System.out.println("ENTERING GRADES FOR " + classSelected);
             student.setCategoryGrades();
             //The student will be prompted for the grades of the current class until
             //they answer "n"

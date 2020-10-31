@@ -1,0 +1,12 @@
+Quiz Grade: 19
+Exam Grade: 26
+Homework Grade: 21
+Project Grade: 23
+Quiz Grade: 19
+Exam Grade: 27
+Homework Grade: 8
+Project Grade: 21
+Quiz Grade: 19
+Exam Grade: 24
+Homework Grade: 24
+Project Grade: 8

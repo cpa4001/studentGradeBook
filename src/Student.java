@@ -69,7 +69,6 @@ public class Student {
         String line;
         // FileReader fileReader = new FileReader("src/temp.txt");
         File gradeFile = new File("src/gradeBook.txt");
-        int nameInt = 0;
 
         if(!gradeFile.exists()){
             gradeFile.createNewFile();
