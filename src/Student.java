@@ -50,7 +50,7 @@ public class Student {
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a C");
 
             }else {
-                System.out.println("Your overall grade is a F");
+                System.out.println("Your overall grade is an F");
                 gradeDifference = 60.00 - this.overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a D");
                 System.out.println("You might want to consider withdrawing from the course.");
@@ -62,7 +62,7 @@ public class Student {
         }
         return true;
     }
-    public void writeFile() throws IOException {
+    public void writeToGradebook() throws IOException {
         /** Writes the overall category grades to
          * gradebook.txt file.
          */
@@ -79,17 +79,19 @@ public class Student {
             writer.write("Exam Grade: " + String.format("%.2f", this.examGrade) + "\n");
             writer.write("Homework Grade: " + String.format("%.2f", this.homeworkGrade) + "\n");
             writer.write("Project Grade: " + String.format("%.2f", this.projectGrade) + "\n");
+            writer.write("Overall grade: " + String.format("%.2f", this.overallGrade) + "\n");
             writer.close();
         } catch (IOException writerex){
             System.out.println(writerex.getStackTrace());
         }
     }
-    protected void readFile() throws FileNotFoundException {
+    protected void recallPreviousGrades() throws FileNotFoundException {
         String line;
-        FileReader fileReader = new FileReader("src/gradebook.txt");
+        FileReader fileReader = new FileReader("src/gradeBook.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         try {
+            System.out.println("Grades for " + this.studentFirstName +" "+this.studentLastName);
             while((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
             }
@@ -131,25 +133,29 @@ public class Student {
         System.out.print("What was your overall quiz grade? ");
         this.quizGrade = scan.nextDouble();
         scan.nextLine();
-        quizGrade *= quizWeight;
+        double quizWeightedGrade = this.quizGrade;
+        quizWeightedGrade *= quizWeight;
 
         System.out.print("What was your overall exam grade? ");
         this.examGrade = scan.nextDouble();
         scan.nextLine();
-        examGrade *= examWeight;
+        double examWeightedGrade = this.examGrade;
+        examWeightedGrade *= examWeight;
 
         System.out.print("What was your overall homework grade? ");
         this.homeworkGrade = scan.nextDouble();
         scan.nextLine();
-        homeworkGrade *= homeworkWeight;
+        double homeworkWeightedGrade = this.homeworkGrade;
+        homeworkWeightedGrade *= homeworkWeight;
 
         System.out.print("What was your overall project grade? ");
         this.projectGrade = scan.nextDouble();
         scan.nextLine();
-        projectGrade  *= projectWeight;
+        double projectWeightedGrade = this.homeworkGrade;
+        projectWeightedGrade  *= projectWeight;
 
-        this.overallGrade = quizGrade + examGrade + homeworkGrade + projectGrade;
+        this.overallGrade = quizWeightedGrade + examWeightedGrade + homeworkWeightedGrade + projectWeightedGrade;
         determineLetterGradeAndDifference();
-        writeFile();
+        writeToGradebook();
     }
 }

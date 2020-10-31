@@ -88,7 +88,7 @@ public class StudentGradeBookMain {
                 case 1:
                     break;
                 case 2:
-                    //recallpreviousgrades
+                    student.recallPreviousGrades();
                     break;
                 case 3:
                     studentGradeInput = false; //Student has chosen to exit gradebook

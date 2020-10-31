@@ -1,8 +1,1 @@
-Quiz Grade: 19.60
-Exam Grade: 29.10
-Homework Grade: 1.25
-Project Grade: 24.11
-Quiz Grade: 19.60
-Exam Grade: 28.03
-Homework Grade: 24.58
-Project Grade: 11.13
+
