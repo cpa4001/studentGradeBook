@@ -75,10 +75,10 @@ public class Student {
         }
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
-            writer.write("Quiz Grade: " + String.valueOf(this.quizGrade) +"\n");
-            writer.write("Exam Grade: " + String.valueOf(this.examGrade) + "\n");
-            writer.write("Homework Grade: " + String.valueOf(this.homeworkGrade) + "\n");
-            writer.write("Project Grade: " + String.valueOf(this.projectGrade) + "\n");
+            writer.write("Quiz Grade: " + String.format("%.2f", this.quizGrade) +"\n");
+            writer.write("Exam Grade: " + String.format("%.2f", this.examGrade) + "\n");
+            writer.write("Homework Grade: " + String.format("%.2f", this.homeworkGrade) + "\n");
+            writer.write("Project Grade: " + String.format("%.2f", this.projectGrade) + "\n");
             writer.close();
         } catch (IOException writerex){
             System.out.println(writerex.getStackTrace());
@@ -139,6 +139,7 @@ public class Student {
         scan.nextLine();
         projectGrade  *= projectWeight;
 
+        System.out.println(projectGrade);
         this.overallGrade = quizGrade + examGrade + homeworkGrade + projectGrade;
         determineLetterGradeAndDifference();
         writeFile();
