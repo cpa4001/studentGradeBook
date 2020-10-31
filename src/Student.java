@@ -76,10 +76,6 @@ public class Student {
         }
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
-            if(nameInt == 0){
-                writer.write("Grades for " + this.studentFirstName + this.studentLastName + "\n");
-                nameInt++;
-            }
             writer.write("Quiz Grade: " + String.valueOf(this.quizGrade) +"\n");
             writer.write("Exam Grade: " + String.valueOf(this.examGrade) + "\n");
             writer.write("Homework Grade: " + String.valueOf(this.homeworkGrade) + "\n");
@@ -111,7 +107,7 @@ public class Student {
         }
     }
 
-    protected void getCategoryGrades() throws IOException {
+    protected void setCategoryGrades() throws IOException {
         /** Prompts the student to enter their grades for each category.
          *  Calculates the weighted grade and overall class grade
          *  Calls the determineLetterGradeAndDifference() and

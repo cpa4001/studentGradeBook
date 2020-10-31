@@ -4,7 +4,6 @@
   * Author: Christian Apostoli
   * Date: 10/30/2020
 
-  ADD ALL JAVADOCS ON GITHUB
  */
 import java.lang.String;
 import java.util.*;
@@ -30,7 +29,7 @@ public class StudentGradeBookMain {
         boolean studentGradeInput = true;
         //Flag for the current class
         boolean studentGradeInputCurrentClass = true;
-        String studentYesOrNo = "y";
+        int studentExitCommand;
 
         //Counter increments by 1 for every class selected
         int courseSelectedCounter = 0;
@@ -53,7 +52,7 @@ public class StudentGradeBookMain {
                 classSelected = scan.nextLine().toUpperCase();
             }
 
-            student.getCategoryGrades();
+            student.setCategoryGrades();
             //The student will be prompted for the grades of the current class until
             //they answer "n"
             /* Will be used in final version when asking for list of values
@@ -69,17 +68,29 @@ public class StudentGradeBookMain {
             */
             courseSelectedCounter++;
             previouslySelectedClasses.add(classSelected);
-
-            //Student's response will keep program running or close program.
-            System.out.print("Are you done entering grades for all classes? (y/n) ");
-            studentYesOrNo = scan.nextLine();
             System.out.println("----------------------------------------");
 
-            if(studentYesOrNo.toLowerCase().equals("y")){
-                studentGradeInput = false;
-                System.out.println("Have a nice day.");
-            }
+            //Student's response will keep program running or close program.
+            System.out.print("Would you like to \n" +
+                             "(1) Enter grades for a new class  \n" +
+                             "(2) Look at grades for a previous class \n" +
+                             "(3) Exit the gradebook \n"+
+                             "Enter a command (1-3) ");
+            studentExitCommand = scan.nextInt();
+            System.out.println("----------------------------------------");
 
+            switch(studentExitCommand){
+                case 1:
+                    break;
+                case 2:
+                    //recallpreviousgrades
+                    break;
+                case 3:
+                    studentGradeInput = false; //Student has chosen to exit gradebook
+                    System.out.println("Have a nice day.");
+                    break;
+            }
+            //When the counter reaches 8, the student is notified there are no more classes to enter grades for.
             if(courseSelectedCounter == 8){
                 System.out.println("There are no more classes to enter grades for.");
                 System.out.println("Have a nice day.");
