@@ -7,6 +7,10 @@ public class Student {
     private String studentLastName;
     private double overallGrade;
     int studentCommand;
+    private double quizGrade;
+    private double examGrade;
+    private double homeworkGrade;
+    private double projectGrade;
 
     public Student(String studentFirstName, String studentLastName){
         /** Constructs a student object using passed name.
@@ -65,14 +69,21 @@ public class Student {
         String line;
         // FileReader fileReader = new FileReader("src/temp.txt");
         File gradeFile = new File("src/gradeBook.txt");
+        int nameInt = 0;
 
         if(!gradeFile.exists()){
             gradeFile.createNewFile();
         }
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
-            writer.write(String.valueOf(this.overallGrade));
-            writer.newLine();
+            if(nameInt == 0){
+                writer.write("Grades for " + this.studentFirstName + this.studentLastName + "\n");
+                nameInt++;
+            }
+            writer.write("Quiz Grade: " + String.valueOf(this.quizGrade) +"\n");
+            writer.write("Exam Grade: " + String.valueOf(this.examGrade) + "\n");
+            writer.write("Homework Grade: " + String.valueOf(this.homeworkGrade) + "\n");
+            writer.write("Project Grade: " + String.valueOf(this.projectGrade) + "\n");
             writer.close();
         } catch (IOException writerex){
             System.out.println(writerex.getStackTrace());
@@ -114,22 +125,22 @@ public class Student {
         int maxTotalPoints = 700;
 
         System.out.print("What was your overall quiz grade? ");
-        double quizGrade = scan.nextDouble();
+        this.quizGrade = scan.nextDouble();
         scan.nextLine();
         quizGrade *= quizWeight;
 
         System.out.print("What was your overall exam grade? ");
-        double examGrade = scan.nextDouble();
+        this.examGrade = scan.nextDouble();
         scan.nextLine();
         examGrade *= examWeight;
 
         System.out.print("What was your overall homework grade? ");
-        double homeworkGrade = scan.nextDouble();
+        this.homeworkGrade = scan.nextDouble();
         scan.nextLine();
         homeworkGrade *= homeworkWeight;
 
         System.out.print("What was your overall project grade? ");
-        double projectGrade = scan.nextDouble();
+        this.projectGrade = scan.nextDouble();
         scan.nextLine();
         projectGrade  *= projectWeight;
 
