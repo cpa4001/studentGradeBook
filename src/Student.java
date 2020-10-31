@@ -112,6 +112,15 @@ public class Student {
          *  Calls the determineLetterGradeAndDifference() and
          *  writeFile() methods
          */
+
+        /*
+        Assignment Weights
+        Quizzes: 20% (225)
+        Homework: 25% (100)
+        Project: 25% (125)
+        Maximum Points: 700
+        */
+
         Scanner scan = new Scanner(System.in);
         double quizWeight = 0.2;
         double examWeight = 0.3;
@@ -139,7 +148,6 @@ public class Student {
         scan.nextLine();
         projectGrade  *= projectWeight;
 
-        System.out.println(projectGrade);
         this.overallGrade = quizGrade + examGrade + homeworkGrade + projectGrade;
         determineLetterGradeAndDifference();
         writeFile();

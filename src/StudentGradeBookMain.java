@@ -39,17 +39,22 @@ public class StudentGradeBookMain {
             System.out.print("Please select a class out of the available courses above: ");
             String classSelected = scan.nextLine().toUpperCase();
 
-            while (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected)) {
+            while (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected) ||
+                    previouslySelectedClasses.contains(classSelected)) {
+
                 //while the class selected by the student is not in available classes
                 // the console will prompt for correct class
-                System.out.print("Invalid class, please enter a correct class: ");
-                classSelected = scan.nextLine().toUpperCase();
-            }
-            while(previouslySelectedClasses.contains(classSelected)){
-                System.out.print("This class has already been selected, please enter a new class: ");
-                classSelected = scan.nextLine().toUpperCase();
-            }
+                if (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected)) {
+                    System.out.print("Invalid class, please enter a correct class: ");
+                    classSelected = scan.nextLine().toUpperCase();
 
+                } else if (previouslySelectedClasses.contains(classSelected)) {
+                    //while the class selected by the student was preveiously selected the console
+                    // will prompt for a new and correct class
+                    System.out.print("This class has already been selected, please enter a new class: ");
+                    classSelected = scan.nextLine().toUpperCase();
+                }
+            }
             System.out.println("----------------------------------------");
             System.out.println("ENTERING GRADES FOR " + classSelected);
             student.setCategoryGrades();
