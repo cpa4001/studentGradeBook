@@ -1,1 +1,6 @@
 
+Quiz Grade: 59.77
+Exam Grade: 90.34
+Homework Grade: 99.22
+Project Grade: 99.99
+Overall grade: 88.67
