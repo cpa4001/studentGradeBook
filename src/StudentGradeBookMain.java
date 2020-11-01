@@ -35,6 +35,19 @@ public class StudentGradeBookMain {
         int courseSelectedCounter = 0;
         while(studentGradeInput) {
 
+            System.out.print("Would you like to \n" +
+                            "(1) Enter grades for a class  \n" +
+                            "(2) Look at grades for a previous class \n");
+            studentExitCommand = scan.nextInt();
+
+            switch(studentExitCommand){
+                case 2:
+                    student.recallPreviousGrades();
+                    System.out.println("----------------------------------------");
+                    break;
+            }
+
+
             System.out.println(Arrays.toString(AVAILABLE_CLASSES));
             System.out.print("Please select a class out of the available courses above: ");
             String classSelected = scan.nextLine().toUpperCase();
