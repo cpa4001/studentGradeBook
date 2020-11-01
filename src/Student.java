@@ -1,6 +1,9 @@
+/** Student class will handle grade input, calculating a student's overall grade,
+ *  writing to a gradebook text file, and recalling previous grades.
+ */
+
 import java.io.*;
 import java.util.Scanner;
-import java.lang.Math;
 public class Student {
 
     private String studentFirstName;
@@ -22,6 +25,8 @@ public class Student {
     }
 
     public Student(){
+        /** Constructs a student object if no information is given.
+         */
         this.overallGrade = 0;
         studentFirstName = "NULL";
         studentLastName = "NULL";
@@ -62,9 +67,9 @@ public class Student {
         }
         return true;
     }
-    public void writeToGradebook() throws IOException {
+    protected void writeToGradebook() throws IOException {
         /** Writes the overall category grades to
-         * gradebook.txt file.
+         * gradeBook.txt file.
          */
         String line;
         // FileReader fileReader = new FileReader("src/temp.txt");
@@ -107,7 +112,6 @@ public class Student {
 
         }
     }
-
     protected void setCategoryGrades() throws IOException {
         /** Prompts the student to enter their grades for each category.
          *  Calculates the weighted grade and overall class grade

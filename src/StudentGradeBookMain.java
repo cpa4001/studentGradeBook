@@ -27,8 +27,8 @@ public class StudentGradeBookMain {
 
         //Flag to see if the student is still inputting grades
         boolean studentGradeInput = true;
-        //Flag for the current class
-        boolean studentGradeInputCurrentClass = true;
+        //Flag for the current class for use in final version
+        //boolean studentGradeInputCurrentClass = true;
         int studentExitCommand;
 
         //Counter increments by 1 for every class selected
@@ -77,7 +77,7 @@ public class StudentGradeBookMain {
 
             //Student's response will keep program running or close program.
             System.out.print("Would you like to \n" +
-                             "(1) Enter grades for a new class  \n" +
+                             "(1) Enter grades for a class  \n" +
                              "(2) Look at grades for a previous class \n" +
                              "(3) Exit the gradebook \n"+
                              "Enter a command (1-3) ");
