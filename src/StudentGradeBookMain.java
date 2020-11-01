@@ -37,10 +37,14 @@ public class StudentGradeBookMain {
 
             System.out.print("Would you like to \n" +
                             "(1) Enter grades for a class  \n" +
-                            "(2) Look at grades for a previous class \n");
+                            "(2) Look at grades for a previous class \n" +
+                            "Enter a command (1-2) ");
             studentExitCommand = scan.nextInt();
 
             switch(studentExitCommand){
+                case 1:
+                    System.out.println("----------------------------------------");
+                    break;
                 case 2:
                     student.recallPreviousGrades();
                     System.out.println("----------------------------------------");
