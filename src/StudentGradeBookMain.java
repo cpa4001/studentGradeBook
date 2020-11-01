@@ -41,9 +41,12 @@ public class StudentGradeBookMain {
                         "(2) Look at grades for a previous class \n" +
                         "Enter a command (1-2) ");
                 studentExitCommand = scan.nextInt();
+                scan.nextLine();
             }
+
             switch(studentExitCommand){
                 case 1:
+                    //The repeated hyphens are included for readability
                     System.out.println("----------------------------------------");
                     break;
                 case 2:
@@ -96,10 +99,10 @@ public class StudentGradeBookMain {
             System.out.print("Would you like to \n" +
                              "(1) Enter grades for a class  \n" +
                              "(2) Look at grades for a previous class \n" +
-                             "(3) Exit the gradebook \n"+
+                             "(3) Exit the Gradebook \n"+
                              "Enter a command (1-3) ");
             studentExitCommand = scan.nextInt();
-            System.out.println("----------------------------------------");
+            scan.nextLine();
 
             switch(studentExitCommand){
                 case 1:
