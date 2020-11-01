@@ -47,7 +47,6 @@ public class StudentGradeBookMain {
                     break;
             }
 
-
             System.out.println(Arrays.toString(AVAILABLE_CLASSES));
             System.out.print("Please select a class out of the available courses above: ");
             String classSelected = scan.nextLine().toUpperCase();
