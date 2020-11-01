@@ -29,18 +29,19 @@ public class StudentGradeBookMain {
         boolean studentGradeInput = true;
         //Flag for the current class for use in final version
         //boolean studentGradeInputCurrentClass = true;
-        int studentExitCommand;
+        int studentExitCommand = 0;
 
         //Counter increments by 1 for every class selected
         int courseSelectedCounter = 0;
         while(studentGradeInput) {
 
-            System.out.print("Would you like to \n" +
-                            "(1) Enter grades for a class  \n" +
-                            "(2) Look at grades for a previous class \n" +
-                            "Enter a command (1-2) ");
-            studentExitCommand = scan.nextInt();
-
+            if(studentExitCommand == 0) {
+                System.out.print("Would you like to \n" +
+                        "(1) Enter grades for a class  \n" +
+                        "(2) Look at grades for a previous class \n" +
+                        "Enter a command (1-2) ");
+                studentExitCommand = scan.nextInt();
+            }
             switch(studentExitCommand){
                 case 1:
                     System.out.println("----------------------------------------");
