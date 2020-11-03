@@ -1,5 +1,7 @@
 /** Student class will handle grade input, calculating a student's overall grade,
  *  writing to a gradebook text file, and recalling previous grades.
+ *  Author: Christian Apostoli
+ *  Date: 11/02/2020
  */
 
 import java.io.*;
@@ -96,11 +98,15 @@ public class Student {
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         try {
-            System.out.println("Grades for " + this.studentFirstName +" "+this.studentLastName);
+            if((line = bufferedReader.readLine()) == null){
+                System.out.println("There are no previously entered grades.");
+            }else{
+                System.out.println("Grades for " + this.studentFirstName + " " + this.studentLastName);
+            }
             while((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
             }
-            //addGrades();
+
             bufferedReader.close();
         }
         catch(FileNotFoundException ex) {
@@ -134,6 +140,7 @@ public class Student {
         double projectWeight = 0.25;
         int maxTotalPoints = 700;
 
+        System.out.println("PLEASE ENTER ONLY REAL NUMBERS UP TO TWO DECIMAL PLACES.");
         System.out.print("What was your overall quiz grade? ");
         this.quizGrade = scan.nextDouble();
         scan.nextLine();

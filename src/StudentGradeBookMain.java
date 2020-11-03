@@ -2,13 +2,19 @@
   * Student Grade Book acts as an interface where students can sign in and view grades, and
   * where teachers can sign in, edit, and assign grades.
   * Author: Christian Apostoli
-  * Date: 10/30/2020
-
+  * Date: 11/02/2020
  */
 import java.lang.String;
 import java.util.*;
 import java.io.*;
 public class StudentGradeBookMain {
+    private static void pageLineBreak(){
+        /** Prints a line of hyphens to break up sections of the console
+         * for increased readability of the user.
+         */
+        System.out.println("----------------------------------------");
+    }
+
     public static void main(String[] args) throws IOException{
 
         //Courses that the student can pick to calculate their overall grade
@@ -29,12 +35,14 @@ public class StudentGradeBookMain {
         boolean studentGradeInput = true;
         //Flag for the current class for use in final version
         //boolean studentGradeInputCurrentClass = true;
+
+        //Numeric command which will be the students choice of action
         int studentExitCommand = 0;
 
         //Counter increments by 1 for every class selected
         int courseSelectedCounter = 0;
         while(studentGradeInput) {
-
+            //The if statement will run once just for the first command
             if(studentExitCommand == 0) {
                 System.out.print("Would you like to \n" +
                         "(1) Enter grades for a class  \n" +
@@ -47,11 +55,13 @@ public class StudentGradeBookMain {
             switch(studentExitCommand){
                 case 1:
                     //The repeated hyphens are included for readability
-                    System.out.println("----------------------------------------");
+                    pageLineBreak();
                     break;
                 case 2:
+                    pageLineBreak();
+                    //Will recall all previously entered grades
                     student.recallPreviousGrades();
-                    System.out.println("----------------------------------------");
+                    pageLineBreak();
                     break;
             }
 
@@ -75,7 +85,7 @@ public class StudentGradeBookMain {
                     classSelected = scan.nextLine().toUpperCase();
                 }
             }
-            System.out.println("----------------------------------------");
+            pageLineBreak();
             System.out.println("ENTERING GRADES FOR " + classSelected);
             student.setCategoryGrades();
             //The student will be prompted for the grades of the current class until
@@ -93,7 +103,7 @@ public class StudentGradeBookMain {
             */
             courseSelectedCounter++;
             previouslySelectedClasses.add(classSelected);
-            System.out.println("----------------------------------------");
+            pageLineBreak();
 
             //Student's response will keep program running or close program.
             System.out.print("Would you like to \n" +
@@ -108,16 +118,19 @@ public class StudentGradeBookMain {
                 case 1:
                     break;
                 case 2:
+                    pageLineBreak();
                     student.recallPreviousGrades();
-                    System.out.println("----------------------------------------");
+                    pageLineBreak();
                     break;
                 case 3:
                     studentGradeInput = false; //Student has chosen to exit gradebook
                     System.out.println("Have a nice day.");
                     break;
             }
-            //When the counter reaches 8, the student is notified there are no more classes to enter grades for.
+            //When the counter reaches 8, the student is notified there are no more classes to enter grades for, and
+            //the program will end.
             if(courseSelectedCounter == 8){
+                pageLineBreak();
                 System.out.println("There are no more classes to enter grades for.");
                 System.out.println("Have a nice day.");
                 studentGradeInput = false;
