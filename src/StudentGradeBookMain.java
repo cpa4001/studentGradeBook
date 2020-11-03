@@ -41,6 +41,8 @@ public class StudentGradeBookMain {
 
         //Counter increments by 1 for every class selected
         int courseSelectedCounter = 0;
+
+        int gradebookFirstLine = 0;
         while(studentGradeInput) {
             //The if statement will run once just for the first command
             if(studentExitCommand == 0 || studentExitCommand == 2) {
@@ -89,6 +91,11 @@ public class StudentGradeBookMain {
             }
             pageLineBreak();
             System.out.println("ENTERING GRADES FOR " + classSelected);
+            //This will write the name to the gradebook only once
+            if(gradebookFirstLine == 0){
+                student.writeNameToGradebook();
+                gradebookFirstLine = 1;
+            }
             student.setCategoryGrades();
             //The student will be prompted for the grades of the current class until
             //they answer "n"

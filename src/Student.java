@@ -62,12 +62,10 @@ public class Student {
                 System.out.println("You might want to consider withdrawing from the course.");
             }
     }
-    protected void writeToGradebook() throws IOException {
+    protected void writeToGradebook() throws IOException{
         /** Writes the overall category grades to
          * gradeBook.txt file.
          */
-        String line;
-        // FileReader fileReader = new FileReader("src/temp.txt");
         File gradeFile = new File("src/gradeBook.txt");
 
         if(!gradeFile.exists()){
@@ -85,6 +83,23 @@ public class Student {
             System.out.println(writerex.getStackTrace());
         }
     }
+    protected void writeNameToGradebook() throws IOException{
+        /** Writes the overall category grades to
+         * gradeBook.txt file.
+         */
+        File gradeFile = new File("src/gradeBook.txt");
+
+        if(!gradeFile.exists()){
+            gradeFile.createNewFile();
+        }
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
+            writer.write("Grades for " + this.studentFirstName + " " + studentLastName + "\n");
+            writer.close();
+        } catch (IOException writerex){
+            System.out.println(writerex.getStackTrace());
+        }
+    }
     protected void recallPreviousGrades() throws FileNotFoundException {
         String line;
         FileReader fileReader = new FileReader("src/gradeBook.txt");
@@ -95,7 +110,6 @@ public class Student {
                 System.out.println("There are no previously entered grades.");
                 bufferedReader.close();
             }else {
-                System.out.println("Grades for " + this.studentFirstName + " " + this.studentLastName);
                 System.out.println(line);
                 while ((line = bufferedReader.readLine()) != null) {
                     System.out.println(line);
