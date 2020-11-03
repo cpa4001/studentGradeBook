@@ -43,7 +43,7 @@ public class StudentGradeBookMain {
         int courseSelectedCounter = 0;
         while(studentGradeInput) {
             //The if statement will run once just for the first command
-            if(studentExitCommand == 0) {
+            if(studentExitCommand == 0 || studentExitCommand == 2) {
                 System.out.print("Would you like to \n" +
                         "(1) Enter grades for a class  \n" +
                         "(2) Look at grades for a previous class \n" +
@@ -58,6 +58,7 @@ public class StudentGradeBookMain {
                     pageLineBreak();
                     break;
                 case 2:
+                    //For alpha, students will not be allowed to just look at previous grades at INITIAL command prompt
                     pageLineBreak();
                     //Will recall all previously entered grades
                     student.recallPreviousGrades();
@@ -108,8 +109,9 @@ public class StudentGradeBookMain {
             //Student's response will keep program running or close program.
             System.out.print("Would you like to \n" +
                              "(1) Enter grades for a class  \n" +
-                             "(2) Look at previous grades and exit the Gradebook \n" +
-                             "(3) Exit the Gradebook \n"+
+                             "(2) Look at previous grades \n" +
+                             "(3) Look at previous grades and exit the Gradebook  \n" +
+                             "(4) Exit the Gradebook \n"+
                              "Enter a command (1-3) ");
             studentExitCommand = scan.nextInt();
             scan.nextLine();
@@ -120,11 +122,15 @@ public class StudentGradeBookMain {
                 case 2:
                     pageLineBreak();
                     student.recallPreviousGrades();
+                    pageLineBreak();
+                case 3:
+                    pageLineBreak();
+                    student.recallPreviousGrades();
                     studentGradeInput = false;
                     System.out.println("Have a nice day.");
                     pageLineBreak();
                     break;
-                case 3:
+                case 4:
                     studentGradeInput = false; //Student has chosen to exit gradebook
                     System.out.println("Have a nice day.");
                     break;
