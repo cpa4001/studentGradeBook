@@ -29,7 +29,6 @@ public class Student {
     public Student(){
         /** Constructs a student object if no information is given.
          */
-        this.overallGrade = 0;
         studentFirstName = "NULL";
         studentLastName = "NULL";
     }
@@ -140,7 +139,7 @@ public class Student {
         double projectWeight = 0.25;
         int maxTotalPoints = 700;
 
-        System.out.println("PLEASE ENTER ONLY REAL NUMBERS UP TO TWO DECIMAL PLACES.");
+        System.out.println("PLEASE ENTER ONLY REAL NUMBERS (0.00 - 100.00) UP TO TWO DECIMAL PLACES.");
         System.out.print("What was your overall quiz grade? ");
         this.quizGrade = scan.nextDouble();
         scan.nextLine();

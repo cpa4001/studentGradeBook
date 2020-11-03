@@ -58,7 +58,8 @@ public class StudentGradeBookMain {
                     pageLineBreak();
                     break;
                 case 2:
-                    //For alpha, students will not be allowed to just look at previous grades at INITIAL command prompt
+                    //For alpha, students will not be allowed to just look at previous grades and exit
+                    // at INITIAL command prompt, this option is given at the end of the while loop
                     pageLineBreak();
                     //Will recall all previously entered grades
                     student.recallPreviousGrades();
@@ -124,6 +125,7 @@ public class StudentGradeBookMain {
                     student.recallPreviousGrades();
                     pageLineBreak();
                     studentExitCommand = 2;
+                    break;
                 case 3:
                     pageLineBreak();
                     student.recallPreviousGrades();
