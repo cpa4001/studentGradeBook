@@ -1,11 +1,11 @@
-Grades for Christian Apostoli
+Grades for c p
 Quiz Grade: 56.00
-Exam Grade: 78.00
-Homework Grade: 90.99
-Project Grade: 23.00
-Overall grade: 63.10
-Quiz Grade: 89.87
-Exam Grade: 78.44
-Homework Grade: 54.99
-Project Grade: 90.34
-Overall grade: 77.84
+Exam Grade: 56.00
+Homework Grade: 78.00
+Project Grade: 89.00
+Overall grade: 69.75
+Quiz Grade: 98.00
+Exam Grade: 80.00
+Homework Grade: 0.00
+Project Grade: 0.00
+Overall grade: 43.60

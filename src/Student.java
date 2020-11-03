@@ -102,28 +102,36 @@ public class Student {
     }
     protected void recallPreviousGrades() throws FileNotFoundException {
         String line;
-        FileReader fileReader = new FileReader("src/gradeBook.txt");
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        File gradeFile = new File("src/gradeBook.txt");
+
 
         try {
-            if((line = bufferedReader.readLine()) == null){
-                System.out.println("There are no previously entered grades.");
-                bufferedReader.close();
-            }else {
-                System.out.println(line);
-                while ((line = bufferedReader.readLine()) != null) {
+            if(gradeFile.exists()) {
+                FileReader fileReader = new FileReader("src/gradeBook.txt");
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                if((line = bufferedReader.readLine()) == null) {
+                    //Lets the user know they have not entered grades if the text file is empty
+                    System.out.println("There are no previously entered grades.");
+                    bufferedReader.close();
+                }else{
                     System.out.println(line);
+                    while ((line = bufferedReader.readLine()) != null) {
+                        System.out.println(line);
+                    }
+                    bufferedReader.close();
                 }
-                bufferedReader.close();
             }
+            else{
+                //Ensures the program will not error when the user recalls grades when gradeBook file dosent exist
+                System.out.println("There are no previously entered grades");
+            }
+
         }
         catch(FileNotFoundException ex) {
-            System.out.println("Unable to open file '" + ex.getStackTrace() + "'");
+            System.out.println("Error finding file '" + ex.getStackTrace() + "'");
         }
         catch(IOException e) {
             System.out.println("Error reading file '" + e.getStackTrace() + "'");
-
-
         }
     }
     protected void setCategoryGrades() throws IOException {
