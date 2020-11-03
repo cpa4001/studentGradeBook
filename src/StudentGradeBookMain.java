@@ -124,12 +124,11 @@ public class StudentGradeBookMain {
                     pageLineBreak();
                     student.recallPreviousGrades();
                     pageLineBreak();
-                    studentExitCommand = 2;
                     break;
                 case 3:
                     pageLineBreak();
                     student.recallPreviousGrades();
-                    studentGradeInput = false;
+                    studentGradeInput = false; //Student has chosen to exit the gradebook after receiving recorded grades
                     pageLineBreak();
                     System.out.println("Have a nice day.");
                     break;
