@@ -112,7 +112,7 @@ public class StudentGradeBookMain {
                              "(2) Look at previous grades \n" +
                              "(3) Look at previous grades and exit the Gradebook  \n" +
                              "(4) Exit the Gradebook \n"+
-                             "Enter a command (1-3) ");
+                             "Enter a command (1-4) ");
             studentExitCommand = scan.nextInt();
             scan.nextLine();
 
@@ -123,14 +123,16 @@ public class StudentGradeBookMain {
                     pageLineBreak();
                     student.recallPreviousGrades();
                     pageLineBreak();
+                    studentExitCommand = 2;
                 case 3:
                     pageLineBreak();
                     student.recallPreviousGrades();
                     studentGradeInput = false;
-                    System.out.println("Have a nice day.");
                     pageLineBreak();
+                    System.out.println("Have a nice day.");
                     break;
                 case 4:
+                    pageLineBreak();
                     studentGradeInput = false; //Student has chosen to exit gradebook
                     System.out.println("Have a nice day.");
                     break;
