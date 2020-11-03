@@ -96,6 +96,7 @@ public class Student {
                 bufferedReader.close();
             }else {
                 System.out.println("Grades for " + this.studentFirstName + " " + this.studentLastName);
+                System.out.println(line);
                 while ((line = bufferedReader.readLine()) != null) {
                     System.out.println(line);
                 }
