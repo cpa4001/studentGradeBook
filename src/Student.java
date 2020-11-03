@@ -100,14 +100,14 @@ public class Student {
         try {
             if((line = bufferedReader.readLine()) == null){
                 System.out.println("There are no previously entered grades.");
-            }else{
+                bufferedReader.close();
+            }else {
                 System.out.println("Grades for " + this.studentFirstName + " " + this.studentLastName);
+                while ((line = bufferedReader.readLine()) != null) {
+                    System.out.println(line);
+                }
+                bufferedReader.close();
             }
-            while((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
-            }
-
-            bufferedReader.close();
         }
         catch(FileNotFoundException ex) {
             System.out.println("Unable to open file '" + ex.getStackTrace() + "'");
