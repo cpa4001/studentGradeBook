@@ -62,12 +62,6 @@ public class Student {
                 System.out.println("You might want to consider withdrawing from the course.");
             }
     }
-    public static boolean validateGradeWeight(double assignmentGrade, double assignmentWeight){
-        if(assignmentGrade > 100 || assignmentGrade < 0){
-            return false;
-        }
-        return true;
-    }
     protected void writeToGradebook() throws IOException {
         /** Writes the overall category grades to
          * gradeBook.txt file.
@@ -137,31 +131,51 @@ public class Student {
         double examWeight = 0.3;
         double homeworkWeight = 0.25;
         double projectWeight = 0.25;
-        int maxTotalPoints = 700;
 
         System.out.println("PLEASE ENTER ONLY REAL NUMBERS (0.00 - 100.00) UP TO TWO DECIMAL PLACES.");
+
         System.out.print("What was your overall quiz grade? ");
         this.quizGrade = scan.nextDouble();
         scan.nextLine();
+        while(this.quizGrade > 100 || this.quizGrade < 0){
+            System.out.print("Invalid Grade, please enter a correct grade: ");
+            this.quizGrade = scan.nextDouble();
+            scan.nextLine();
+        }
         double quizWeightedGrade = this.quizGrade;
         quizWeightedGrade *= quizWeight;
 
         System.out.print("What was your overall exam grade? ");
         this.examGrade = scan.nextDouble();
         scan.nextLine();
+        while(this.examGrade > 100 || this.examGrade < 0){
+            System.out.print("Invalid Grade, please enter a correct grade: ");
+            this.examGrade = scan.nextDouble();
+            scan.nextLine();
+        }
         double examWeightedGrade = this.examGrade;
         examWeightedGrade *= examWeight;
 
         System.out.print("What was your overall homework grade? ");
         this.homeworkGrade = scan.nextDouble();
         scan.nextLine();
+        while(this.homeworkGrade > 100 || this.homeworkGrade < 0){
+            System.out.print("Invalid Grade, please enter a correct grade: ");
+            this.homeworkGrade = scan.nextDouble();
+            scan.nextLine();
+        }
         double homeworkWeightedGrade = this.homeworkGrade;
         homeworkWeightedGrade *= homeworkWeight;
 
         System.out.print("What was your overall project grade? ");
         this.projectGrade = scan.nextDouble();
         scan.nextLine();
-        double projectWeightedGrade = this.homeworkGrade;
+        while(this.projectGrade > 100 || this.projectGrade < 0){
+            System.out.print("Invalid Grade, please enter a correct grade: ");
+            this.projectGrade = scan.nextDouble();
+            scan.nextLine();
+        }
+        double projectWeightedGrade = this.projectGrade;
         projectWeightedGrade  *= projectWeight;
 
         this.overallGrade = quizWeightedGrade + examWeightedGrade + homeworkWeightedGrade + projectWeightedGrade;
