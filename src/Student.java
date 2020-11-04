@@ -102,6 +102,7 @@ public class Student {
     }
     protected void recallPreviousGrades() throws FileNotFoundException {
         String line;
+        int fileRecord = 0;
         File gradeFile = new File("src/gradeBook.txt");
 
 
@@ -114,18 +115,16 @@ public class Student {
                     System.out.println("There are no previously entered grades.");
                     bufferedReader.close();
                 }else{
-                    System.out.println(line);
-                    while ((line = bufferedReader.readLine()) != null) {
+                    //The while and if looks for the students record and prints every record after his
+                    while((line = bufferedReader.readLine()) != null) {
                         System.out.println(line);
                     }
                     bufferedReader.close();
                 }
-            }
-            else{
+            }else{
                 //Ensures the program will not error when the user recalls grades when gradeBook file dosent exist
                 System.out.println("There are no previously entered grades");
             }
-
         }
         catch(FileNotFoundException ex) {
             System.out.println("Error finding file '" + ex.getStackTrace() + "'");
@@ -134,6 +133,7 @@ public class Student {
             System.out.println("Error reading file '" + e.getStackTrace() + "'");
         }
     }
+
     protected void setCategoryGrades() throws IOException {
         /** Prompts the student to enter their grades for each category.
          *  Calculates the weighted grade and overall class grade
@@ -144,6 +144,7 @@ public class Student {
         /*
         Assignment Weights
         Quizzes: 20% (225)
+        Exams: 30% (100)
         Homework: 25% (100)
         Project: 25% (125)
         Maximum Points: 700

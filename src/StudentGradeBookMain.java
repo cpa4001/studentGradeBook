@@ -28,8 +28,9 @@ public class StudentGradeBookMain {
         //Student's name will be split into first name and last name
         String[] studentFullName = studentName.split(" ");
 
+
         //Creates a student object using the first two elements in studentFullName
-        Student student = new Student(studentFullName[0],studentFullName[1]);
+        Student student = new Student(studentFullName[0], studentFullName[1]);
 
         //Flag to see if the student is still inputting grades
         boolean studentGradeInput = true;
