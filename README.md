@@ -42,5 +42,5 @@ Week 8: Building methods for classes </br>
 Week 9: Intial testing and refactoring </br>
 _Sprint 4_  </br>
 Week 10: Building more methods for writing/reading files  </br>
-Week 11: Commenting, annotating, and increasing readability
+Week 11: Commenting, annotating, and increasing readability </br>
 Week 12: Final testing and veryifying user requirements are met
