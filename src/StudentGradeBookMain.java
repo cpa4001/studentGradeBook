@@ -10,7 +10,7 @@ import java.io.*;
 public class StudentGradeBookMain {
     private static void pageLineBreak(){
         /** Prints a line of hyphens to break up sections of the console
-         * for increased readability of the user.
+         * for increased readability for the user.
          */
         System.out.println("----------------------------------------");
     }
@@ -44,7 +44,6 @@ public class StudentGradeBookMain {
 
         int gradebookFirstLine = 0;
         while(studentGradeInput) {
-            //The if statement will run once just for the first command
             if(studentExitCommand == 0 || studentExitCommand == 2) {
                 System.out.print("Would you like to \n" +
                         "(1) Enter grades for a class  \n" +
@@ -56,7 +55,6 @@ public class StudentGradeBookMain {
 
             switch(studentExitCommand){
                 case 1:
-                    //The repeated hyphens are included for readability
                     pageLineBreak();
                     break;
                 case 2:
