@@ -8,8 +8,8 @@ import java.io.*;
 import java.util.Scanner;
 public class Student {
 
-    private String studentFirstName;
-    private String studentLastName;
+    private final String studentFirstName;
+    private final String studentLastName;
     private double overallGrade;
     int studentCommand;
     private double quizGrade;
@@ -115,7 +115,7 @@ public class Student {
                     System.out.println("There are no previously entered grades.");
                     bufferedReader.close();
                 }else{
-                    //The while and if looks for the students record and prints every record after his
+                    System.out.println(line);
                     while((line = bufferedReader.readLine()) != null) {
                         System.out.println(line);
                     }
