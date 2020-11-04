@@ -2,7 +2,7 @@
   * Student Grade Book acts as an interface where students can sign in and view grades, and
   * where teachers can sign in, edit, and assign grades.
   * Author: Christian Apostoli
-  * Date: 11/02/2020
+  * Date: 11/04/2020
  */
 import java.lang.String;
 import java.util.*;
