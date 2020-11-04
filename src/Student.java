@@ -11,7 +11,6 @@ public class Student {
     private final String studentFirstName;
     private final String studentLastName;
     private double overallGrade;
-    int studentCommand;
     private double quizGrade;
     private double examGrade;
     private double homeworkGrade;
