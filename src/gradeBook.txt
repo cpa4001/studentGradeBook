@@ -1,22 +1,6 @@
 Grades for c p
 Quiz Grade: 89.00
-Exam Grade: 98.00
-Homework Grade: 89.00
-Project Grade: 89.00
-Overall grade: 91.70
-Quiz Grade: 89.00
 Exam Grade: 89.00
 Homework Grade: 89.00
 Project Grade: 89.00
 Overall grade: 89.00
-Grades for christian apostoli
-Quiz Grade: 89.00
-Exam Grade: 89.00
-Homework Grade: 89.00
-Project Grade: 89.00
-Overall grade: 89.00
-Quiz Grade: 90.00
-Exam Grade: 90.00
-Homework Grade: 90.00
-Project Grade: 90.00
-Overall grade: 90.00

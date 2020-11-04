@@ -83,8 +83,7 @@ public class Student {
         }
     }
     protected void writeNameToGradebook() throws IOException{
-        /** Writes the overall category grades to
-         * gradeBook.txt file.
+        /** Writes the overall students name to the gradeBook.txt file
          */
         File gradeFile = new File("src/gradeBook.txt");
 
@@ -100,6 +99,9 @@ public class Student {
         }
     }
     protected void recallPreviousGrades() throws FileNotFoundException {
+        /** Recalls all grades back to the student, and lets the student know
+         *  there are no grades to recall if the file is black or does not exist.
+         */
         String line;
         int fileRecord = 0;
         File gradeFile = new File("src/gradeBook.txt");
@@ -135,7 +137,7 @@ public class Student {
 
     protected void setCategoryGrades() throws IOException {
         /** Prompts the student to enter their grades for each category.
-         *  Calculates the weighted grade and overall class grade
+         *  Calculates the weighted grade and overall class grade.
          *  Calls the determineLetterGradeAndDifference() and
          *  writeFile() methods
          */
