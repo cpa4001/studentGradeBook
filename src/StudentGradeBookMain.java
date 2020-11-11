@@ -101,22 +101,25 @@ public class StudentGradeBookMain {
                             "Enter a command (1-2) ");
                     studentExitCommand = scan.nextInt();
                     scan.nextLine();
+                    if(studentExitCommand == 2){
+                        studentGradeInput = false;
+                        pageLineBreak();
+                        System.out.println("Have a nice day.");
+                    }
                     pageLineBreak();
                     break;
             }
-            if(studentExitCommand != 2){
-                System.out.println("IGNORE THIS");
-            }
-            validateClass();
-            //This will write the name to the gradebook only once
-            if(gradebookFirstLine == 0){
-                student.writeNameToGradebook();
-                gradebookFirstLine = 1;
-            }
-            //HashGradebook.addAssignment();
-            student.setCategoryGrades();
-            //The student will be prompted for the grades of the current class until
-            //they answer "n"
+            if(studentExitCommand == 1){
+                validateClass();
+                //This will write the name to the gradebook only once
+                if(gradebookFirstLine == 0){
+                    student.writeNameToGradebook();
+                    gradebookFirstLine = 1;
+                }
+                //HashGradebook.addAssignment();
+                student.setCategoryGrades();
+                //The student will be prompted for the grades of the current class until
+                //they answer "n"
             /* Will be used in final version when asking for list of values
             System.out.print("Are you done entering grades for this class? (y/n) ");
             studentYesOrNo = scan.nextLine();
@@ -128,57 +131,58 @@ public class StudentGradeBookMain {
                 courseSelectedCounter++;
             }
             */
-            courseSelectedCounter++;
-            pageLineBreak();
-
-            //Student's response will keep program running or close program.
-            System.out.print("Would you like to \n" +
-                             "(1) Enter grades for a class  \n" +
-                             "(2) Look at previous grades \n" +
-                             "(3) Look at previous grades and exit the Gradebook  \n" +
-                             "(4) Exit the Gradebook \n"+
-                             "Enter a command (1-4) ");
-            studentExitCommand = scan.nextInt();
-            scan.nextLine();
-
-            switch(studentExitCommand){
-                case 1:
-                    break;
-                case 2:
-                    pageLineBreak();
-                    student.recallPreviousGrades();
-                    pageLineBreak();
-                    System.out.print("Would you like to \n" +
-                            "(1) Enter grades for a class  \n" +
-                            "(2) Exit the gradebook \n" +
-                            "Enter a command (1-2)");
-                    studentExitCommand = scan.nextInt();
-                    scan.nextLine();
-                    if(studentExitCommand == 2){
-                        studentGradeInput = false;
-                        System.out.println("Have a nice day.");
-                    }
-                    break;
-                case 3:
-                    pageLineBreak();
-                    student.recallPreviousGrades();
-                    studentGradeInput = false; //Student has chosen to exit the gradebook after receiving recorded grades
-                    pageLineBreak();
-                    System.out.println("Have a nice day.");
-                    break;
-                case 4:
-                    pageLineBreak();
-                    studentGradeInput = false; //Student has chosen to exit gradebook
-                    System.out.println("Have a nice day.");
-                    break;
-            }
-            //When the counter reaches 8, the student is notified there are no more classes to enter grades for, and
-            //the program will end.
-            if(courseSelectedCounter == 8){
+                courseSelectedCounter++;
                 pageLineBreak();
-                System.out.println("There are no more classes to enter grades for.");
-                System.out.println("Have a nice day.");
-                studentGradeInput = false;
+
+                //Student's response will keep program running or close program.
+                System.out.print("Would you like to \n" +
+                        "(1) Enter grades for a class  \n" +
+                        "(2) Look at previous grades \n" +
+                        "(3) Look at previous grades and exit the Gradebook  \n" +
+                        "(4) Exit the Gradebook \n"+
+                        "Enter a command (1-4) ");
+                studentExitCommand = scan.nextInt();
+                scan.nextLine();
+
+                switch(studentExitCommand){
+                    case 1:
+                        break;
+                    case 2:
+                        pageLineBreak();
+                        student.recallPreviousGrades();
+                        pageLineBreak();
+                        System.out.print("Would you like to \n" +
+                                "(1) Enter grades for a class  \n" +
+                                "(2) Exit the gradebook \n" +
+                                "Enter a command (1-2)");
+                        studentExitCommand = scan.nextInt();
+                        scan.nextLine();
+                        if(studentExitCommand == 2){
+                            studentGradeInput = false;
+                            System.out.println("Have a nice day.");
+                        }
+                        break;
+                    case 3:
+                        pageLineBreak();
+                        student.recallPreviousGrades();
+                        studentGradeInput = false; //Student has chosen to exit the gradebook after receiving recorded grades
+                        pageLineBreak();
+                        System.out.println("Have a nice day.");
+                        break;
+                    case 4:
+                        pageLineBreak();
+                        studentGradeInput = false; //Student has chosen to exit gradebook
+                        System.out.println("Have a nice day.");
+                        break;
+                }
+                //When the counter reaches 8, the student is notified there are no more classes to enter grades for, and
+                //the program will end.
+                if(courseSelectedCounter == 8){
+                    pageLineBreak();
+                    System.out.println("There are no more classes to enter grades for.");
+                    System.out.println("Have a nice day.");
+                    studentGradeInput = false;
+                }
             }
         }
     }
