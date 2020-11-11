@@ -151,7 +151,7 @@ public class StudentGradeBookMain {
                         pageLineBreak();
                         student.recallPreviousGrades();
                         pageLineBreak();
-                        System.out.print("Would you like to \n" +
+                        System.out.println("Would you like to \n" +
                                 "(1) Enter grades for a class  \n" +
                                 "(2) Exit the gradebook \n" +
                                 "Enter a command (1-2)");
