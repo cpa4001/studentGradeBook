@@ -8,6 +8,40 @@ import java.lang.String;
 import java.util.*;
 import java.io.*;
 public class StudentGradeBookMain {
+    //Courses that the student can pick to calculate their overall grade
+    public static final String[] AVAILABLE_CLASSES = {"COMPUTATIONAL MATH", "GRAPH THEORY", "DIFFERENTIAL EQUATIONS",
+            "LINEAR ALGEBRA", "DISCRETE MATH", "MATH HISTORY", "STATISTICS", "COP 2006"};
+    public static ArrayList<String> previouslySelectedClasses = new ArrayList<>();
+
+    protected static void validateClass(){
+        /** Verifies that the student is taking a valid and
+         * available class that exists and has not been previously entered.
+         */
+        Scanner scan = new Scanner(System.in);
+        System.out.println(Arrays.toString(AVAILABLE_CLASSES));
+        System.out.print("Please select a class out of the available courses above: ");
+        String classSelected = scan.nextLine().toUpperCase();
+
+        while (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected) ||
+                previouslySelectedClasses.contains(classSelected)) {
+
+            //while the class selected by the student is not in available classes
+            // the console will prompt for correct class
+            if (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected)) {
+                System.out.print("Invalid class, please enter a correct class: ");
+                classSelected = scan.nextLine().toUpperCase();
+
+            } else if (previouslySelectedClasses.contains(classSelected)) {
+                //while the class selected by the student was preveiously selected the console
+                // will prompt for a new and correct class
+                System.out.print("This class has already been selected, please enter a new class: ");
+                classSelected = scan.nextLine().toUpperCase();
+            }
+        }
+        pageLineBreak();
+        previouslySelectedClasses.add(classSelected);
+        System.out.println("ENTERING GRADES FOR " + classSelected);
+    }
     private static void pageLineBreak(){
         /** Prints a line of hyphens to break up sections of the console
          * for increased readability for the user.
@@ -18,9 +52,6 @@ public class StudentGradeBookMain {
     public static void main(String[] args) throws IOException{
 
         //Courses that the student can pick to calculate their overall grade
-        final String[] AVAILABLE_CLASSES = {"COMPUTATIONAL MATH", "GRAPH THEORY", "DIFFERENTIAL EQUATIONS",
-                                           "LINEAR ALGEBRA", "DISCRETE MATH", "MATH HISTORY", "STATISTICS", "COP 2006"};
-        ArrayList<String> previouslySelectedClasses = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
 
         System.out.print("What is your first and last name: ");
@@ -64,36 +95,25 @@ public class StudentGradeBookMain {
                     //Will recall all previously entered grades
                     student.recallPreviousGrades();
                     pageLineBreak();
+                    System.out.print("Would you like to \n" +
+                            "(1) Enter grades for a class  \n" +
+                            "(2) Exit the gradebook \n" +
+                            "Enter a command (1-2) ");
+                    studentExitCommand = scan.nextInt();
+                    scan.nextLine();
+                    pageLineBreak();
                     break;
             }
-
-            System.out.println(Arrays.toString(AVAILABLE_CLASSES));
-            System.out.print("Please select a class out of the available courses above: ");
-            String classSelected = scan.nextLine().toUpperCase();
-
-            while (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected) ||
-                    previouslySelectedClasses.contains(classSelected)) {
-
-                //while the class selected by the student is not in available classes
-                // the console will prompt for correct class
-                if (!Arrays.asList(AVAILABLE_CLASSES).contains(classSelected)) {
-                    System.out.print("Invalid class, please enter a correct class: ");
-                    classSelected = scan.nextLine().toUpperCase();
-
-                } else if (previouslySelectedClasses.contains(classSelected)) {
-                    //while the class selected by the student was preveiously selected the console
-                    // will prompt for a new and correct class
-                    System.out.print("This class has already been selected, please enter a new class: ");
-                    classSelected = scan.nextLine().toUpperCase();
-                }
+            if(studentExitCommand != 2){
+                System.out.println("IGNORE THIS");
             }
-            pageLineBreak();
-            System.out.println("ENTERING GRADES FOR " + classSelected);
+            validateClass();
             //This will write the name to the gradebook only once
             if(gradebookFirstLine == 0){
                 student.writeNameToGradebook();
                 gradebookFirstLine = 1;
             }
+            //HashGradebook.addAssignment();
             student.setCategoryGrades();
             //The student will be prompted for the grades of the current class until
             //they answer "n"
@@ -109,7 +129,6 @@ public class StudentGradeBookMain {
             }
             */
             courseSelectedCounter++;
-            previouslySelectedClasses.add(classSelected);
             pageLineBreak();
 
             //Student's response will keep program running or close program.
@@ -129,6 +148,16 @@ public class StudentGradeBookMain {
                     pageLineBreak();
                     student.recallPreviousGrades();
                     pageLineBreak();
+                    System.out.print("Would you like to \n" +
+                            "(1) Enter grades for a class  \n" +
+                            "(2) Exit the gradebook \n" +
+                            "Enter a command (1-2)");
+                    studentExitCommand = scan.nextInt();
+                    scan.nextLine();
+                    if(studentExitCommand == 2){
+                        studentGradeInput = false;
+                        System.out.println("Have a nice day.");
+                    }
                     break;
                 case 3:
                     pageLineBreak();
