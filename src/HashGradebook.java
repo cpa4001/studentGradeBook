@@ -4,11 +4,16 @@ public class HashGradebook {
     public static Map<String,Double> hashGradeBook = new Hashtable<>();
 
     public static void addAssignment(){
+        ArrayList<String> assignmentNames = new ArrayList<>();
+        ArrayList<Double> assignmentGrades = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
-        String assignmentName = scan.nextLine();
-        while(!assignmentName.equals("END")){
+        boolean gradeInput = true;
+        while(gradeInput){
             double assignmentGrade = scan.nextDouble();
-            hashGradeBook.put(assignmentName, assignmentGrade);
+        }
+
+        for(int i = 0; i< assignmentNames.size(); i++){
+            hashGradeBook.put(assignmentNames.get(i), assignmentGrades.get(i));
         }
     }
 }

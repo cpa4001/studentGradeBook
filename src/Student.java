@@ -31,6 +31,7 @@ public class Student {
         studentFirstName = "NULL";
         studentLastName = "NULL";
     }
+
     protected void determineLetterGradeAndDifference(){
         /** Determines the letter grade for the student. Calculates
              * the percentage needed to earn the next highest grade
@@ -61,6 +62,7 @@ public class Student {
                 System.out.println("You might want to consider withdrawing from the course.");
             }
     }
+
     protected void writeToGradebook() throws IOException{
         /** Writes the overall category grades to
          * gradeBook.txt file.
@@ -82,6 +84,7 @@ public class Student {
             System.out.println(writerex.getStackTrace());
         }
     }
+
     protected void writeNameToGradebook() throws IOException{
         /** Writes the overall students name to the gradeBook.txt file
          */
@@ -92,12 +95,13 @@ public class Student {
         }
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
-            writer.write("Grades for " + this.studentFirstName + " " + studentLastName + "\n");
+            writer.write(this.studentFirstName + " " + studentLastName + "\n");
             writer.close();
         } catch (IOException writerex){
             System.out.println(writerex.getStackTrace());
         }
     }
+
     protected void recallPreviousGrades() throws FileNotFoundException {
         /** Recalls all grades back to the student, and lets the student know
          *  there are no grades to recall if the file is black or does not exist.

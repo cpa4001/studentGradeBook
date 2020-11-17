@@ -42,6 +42,7 @@ public class StudentGradeBookMain {
         previouslySelectedClasses.add(classSelected);
         System.out.println("ENTERING GRADES FOR " + classSelected);
     }
+
     private static void pageLineBreak(){
         /** Prints a line of hyphens to break up sections of the console
          * for increased readability for the user.
