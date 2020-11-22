@@ -9,9 +9,9 @@ import java.util.*;
 import java.io.*;
 public class StudentGradeBookMain {
     //Courses that the student can pick to calculate their overall grade
-    public static final String[] AVAILABLE_CLASSES = {"COMPUTATIONAL MATH", "GRAPH THEORY", "DIFFERENTIAL EQUATIONS",
+    protected static final String[] AVAILABLE_CLASSES = {"COMPUTATIONAL MATH", "GRAPH THEORY", "DIFFERENTIAL EQUATIONS",
             "LINEAR ALGEBRA", "DISCRETE MATH", "MATH HISTORY", "STATISTICS", "COP 2006"};
-    public static ArrayList<String> previouslySelectedClasses = new ArrayList<>();
+    protected static ArrayList<String> previouslySelectedClasses = new ArrayList<>();
 
     protected static void validateClass(){
         /** Verifies that the student is taking a valid and

@@ -5,6 +5,7 @@
  */
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Student {
 
@@ -95,7 +96,7 @@ public class Student {
         }
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
-            writer.write(this.studentFirstName + " " + studentLastName + "\n");
+            writer.write(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase() + "\n");
             writer.close();
         } catch (IOException writerex){
             System.out.println(writerex.getStackTrace());
@@ -107,28 +108,35 @@ public class Student {
          *  there are no grades to recall if the file is black or does not exist.
          */
         String line;
-        int fileRecord = 0;
         File gradeFile = new File("src/gradeBook.txt");
+        ArrayList<String> studentGrades = new ArrayList<>();
 
 
         try {
-            if(gradeFile.exists()) {
-                FileReader fileReader = new FileReader("src/gradeBook.txt");
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                if((line = bufferedReader.readLine()) == null) {
-                    //Lets the user know they have not entered grades if the text file is empty
-                    System.out.println("There are no previously entered grades.");
-                    bufferedReader.close();
-                }else{
-                    System.out.println(line);
-                    while((line = bufferedReader.readLine()) != null) {
-                        System.out.println(line);
-                    }
-                    bufferedReader.close();
-                }
-            }else{
+            if(!gradeFile.exists()) {
                 //Ensures the program will not error when the user recalls grades when gradeBook file dosent exist
                 System.out.println("There are no previously entered grades");
+            }else{
+                FileReader fileReader = new FileReader("src/gradeBook.txt");
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                System.out.println(this.studentFirstName + " " + this.studentLastName);
+                while((line = bufferedReader.readLine()) != null) {
+                    studentGrades.add(line);
+                }
+
+                for(int i = 0; i < studentGrades.size(); i++){
+                        if(studentGrades.get(i).toLowerCase().contains(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase()))
+                            System.out.println(studentGrades.get(i + 1) + "\n"
+                                               + studentGrades.get(i + 2) + "\n"
+                                               + studentGrades.get(i + 3) + "\n"
+                                               + studentGrades.get(i + 4) + "\n"
+                                               + studentGrades.get(i + 5) + "\n");
+                }
+                if(!studentGrades.contains(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase())){
+                    System.out.println("You have not entered any grades yet");
+                }
+
+                bufferedReader.close();
             }
         }
         catch(FileNotFoundException ex) {
