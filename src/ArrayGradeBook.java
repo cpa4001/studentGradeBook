@@ -13,29 +13,43 @@ public class ArrayGradeBook {
     private double examGrade;
     private double homeworkGrade;
     private double projectGrade;
-
-    public static void addAssignment(){
+    public static void addAssignment() throws IOException {
 
         Scanner scan = new Scanner(System.in);
         boolean gradeInput = true;
+        System.out.println("PLEASE ENTER ONLY REAL NUMBERS (0.00 - 100.00) UP TO TWO DECIMAL PLACES.");
+        System.out.println("Enter END to stop entering grades");
         while(gradeInput) {
-            System.out.println("PLEASE ENTER ONLY REAL NUMBERS (0.00 - 100.00) UP TO TWO DECIMAL PLACES.");
-            System.out.println("Enter END to stop entering grades");
 
             String assignmentName = scan.nextLine();
             if (assignmentName.toUpperCase().equals("END")) {
                 gradeInput = false;
             } else {
                 assignmentNames.add(assignmentName);
-
-                double assignementGrade = scan.nextDouble();
-                scan.nextLine();
-                assignmentGrades.add(assignementGrade);
+                try{
+                    double assignementGrade = scan.nextDouble();
+                    scan.nextLine();
+                    while(assignementGrade > 100 || assignementGrade < 0){
+                        System.out.print("Invalid Grade, please enter a correct grade: ");
+                        assignementGrade = scan.nextDouble();
+                        scan.nextLine();
+                    }
+                    assignmentGrades.add(assignementGrade);
+                }catch(NumberFormatException e) { //if user doesn't input a number, this will catch the error
+                    System.out.println("Error: Not a valid grade");
+                }
             }
         }
+        System.out.println(assignmentNames);
+        //determineGrade
+        //writeToGradebook();
+        //Student.determineLetterGradeAndDifference(overallGrade)
+    }
+    protected static void getAssignementGrade(){
+
     }
 
-    protected void writeToGradebook() throws IOException {
+    protected static void writeToGradebook() throws IOException {
         /** Writes the overall category grades to
          * gradeBook.txt file.
          */
@@ -59,34 +73,9 @@ public class ArrayGradeBook {
             System.out.println(writerex.getStackTrace());
         }
     }
-    protected void determineLetterGradeAndDifference(){
-        /** Determines the letter grade for the student. Calculates
-         * the percentage needed to earn the next highest grade
-         */
-        double gradeDifference;
-        if(this.overallGrade >= 90.00){
-            System.out.println("Congratulations, your overall grade is an A for this course.");
 
-        }else if (this.overallGrade >= 80.00){
-            System.out.println("Your overall grade is a B for this course.");
-            gradeDifference = 90.00 - this.overallGrade;
-            System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from an A");
-
-        }else if (this.overallGrade >= 70.00){
-            System.out.println("Your overall grade is a C for this class.");
-            gradeDifference = 80.00 - this.overallGrade;
-            System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a B");
-
-        } else if(this.overallGrade >= 60.00){
-            System.out.println("Your overall grade is a D");
-            gradeDifference = 70.00 - this.overallGrade;
-            System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a C");
-
-        }else {
-            System.out.println("Your overall grade is an F");
-            gradeDifference = 60.00 - this.overallGrade;
-            System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a D");
-            System.out.println("You might want to consider withdrawing from the course.");
+    protected static void determineOverallGrade(){
+        for(int assignmentnum = 0; assignmentnum <= assignmentNames.size(); assignmentnum++){
         }
     }
 }

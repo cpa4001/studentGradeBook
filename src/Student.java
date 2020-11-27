@@ -33,32 +33,32 @@ public class Student {
         studentLastName = "NULL";
     }
 
-    protected void determineLetterGradeAndDifference(){
+    public static void determineLetterGradeAndDifference(double overallGrade){
         /** Determines the letter grade for the student. Calculates
              * the percentage needed to earn the next highest grade
              */
         double gradeDifference;
-            if(this.overallGrade >= 90.00){
+            if(overallGrade >= 90.00){
                 System.out.println("Congratulations, your overall grade is an A for this course.");
 
-            }else if (this.overallGrade >= 80.00){
+            }else if (overallGrade >= 80.00){
                 System.out.println("Your overall grade is a B for this course.");
-                gradeDifference = 90.00 - this.overallGrade;
+                gradeDifference = 90.00 - overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from an A");
 
-            }else if (this.overallGrade >= 70.00){
+            }else if (overallGrade >= 70.00){
                 System.out.println("Your overall grade is a C for this class.");
-                gradeDifference = 80.00 - this.overallGrade;
+                gradeDifference = 80.00 - overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a B");
 
-            } else if(this.overallGrade >= 60.00){
+            } else if(overallGrade >= 60.00){
                 System.out.println("Your overall grade is a D");
-                gradeDifference = 70.00 - this.overallGrade;
+                gradeDifference = 70.00 - overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a C");
 
             }else {
                 System.out.println("Your overall grade is an F");
-                gradeDifference = 60.00 - this.overallGrade;
+                gradeDifference = 60.00 - overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a D");
                 System.out.println("You might want to consider withdrawing from the course.");
             }
@@ -216,7 +216,7 @@ public class Student {
         projectWeightedGrade  *= projectWeight;
 
         this.overallGrade = quizWeightedGrade + examWeightedGrade + homeworkWeightedGrade + projectWeightedGrade;
-        determineLetterGradeAndDifference();
+        determineLetterGradeAndDifference(this.overallGrade);
         writeToGradebook();
     }
 }
