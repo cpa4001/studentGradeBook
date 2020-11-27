@@ -45,10 +45,11 @@ public class ArrayGradeBook {
         //writeToGradebook();
         //Student.determineLetterGradeAndDifference(overallGrade)
     }
+    /*
     protected static void getAssignementGrade(){
 
     }
-
+    */
     protected static void writeToGradebook() throws IOException {
         /** Writes the overall category grades to
          * gradeBook.txt file.
