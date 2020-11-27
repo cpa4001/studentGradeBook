@@ -13,7 +13,7 @@ public class ArrayGradeBook {
     private double examGrade;
     private double homeworkGrade;
     private double projectGrade;
-    public ArrayGradeBook(){};
+    public ArrayGradeBook(){}
 
     public static void addAssignment() throws IOException {
 
@@ -43,9 +43,7 @@ public class ArrayGradeBook {
             }
         }
         System.out.println(assignmentNames);
-        //determineGrade
         //writeToGradebook();
-        //Student.determineLetterGradeAndDifference(overallGrade)
     }
     /*
     protected static void getAssignementGrade(){
@@ -77,7 +75,7 @@ public class ArrayGradeBook {
         }
     }
 
-    protected static void determineOverallGrade(){
+    protected void determineOverallGrade() throws IOException {
         /*
         for(int assignmentnum = 0; assignmentnum <= assignmentNames.size(); assignmentnum++){
         }
@@ -97,59 +95,27 @@ public class ArrayGradeBook {
         double homeworkWeight = 0.25;
         double projectWeight = 0.25;
 
-        double quizGrade;
-        for (String assignmentname : assignmentNames){
-            if (assignmentname.contains("Quiz")) {
-                quizGrade = 0;
+
+        for(int assignmentnum = 0; assignmentnum <= assignmentNames.size(); assignmentnum++){
+            if (assignmentNames.get(assignmentnum).contains("quiz")){
+                this.quizGrade += assignmentGrades.get(assignmentnum);
+            }else if (assignmentNames.get(assignmentnum).contains("exam")){
+                this.examGrade += assignmentGrades.get(assignmentnum);
+            }else if (assignmentNames.get(assignmentnum).contains("homework")){
+                this.homeworkGrade += assignmentGrades.get(assignmentnum);
+            }else{
+                this.projectGrade += assignmentGrades.get(assignmentnum);
             }
         }
+        this.quizGrade *= quizWeight;
+        this.projectGrade *= projectWeight;
+        this.examGrade *= examWeight;
+        this.homeworkGrade *= homeworkWeight;
 
+        this.overallGrade = this.quizGrade + this.homeworkGrade + this.examGrade + this.projectGrade;
 
-       /*
-        while(this.quizGrade > 100 || this.quizGrade < 0){
-            System.out.print("Invalid Grade, please enter a correct grade: ");
-            this.quizGrade = scan.nextDouble();
-            scan.nextLine();
-        }
-        this.quizGrade
-        double quizWeightedGrade = this.quizGrade;
-        quizWeightedGrade *= quizWeight;
+        Student.determineLetterGradeAndDifference(this.overallGrade);
 
-        System.out.print("What was your overall exam grade? ");
-        this.examGrade = scan.nextDouble();
-        scan.nextLine();
-        while(this.examGrade > 100 || this.examGrade < 0){
-            System.out.print("Invalid Grade, please enter a correct grade: ");
-            this.examGrade = scan.nextDouble();
-            scan.nextLine();
-        }
-        double examWeightedGrade = this.examGrade;
-        examWeightedGrade *= examWeight;
-
-        System.out.print("What was your overall homework grade? ");
-        this.homeworkGrade = scan.nextDouble();
-        scan.nextLine();
-        while(this.homeworkGrade > 100 || this.homeworkGrade < 0){
-            System.out.print("Invalid Grade, please enter a correct grade: ");
-            this.homeworkGrade = scan.nextDouble();
-            scan.nextLine();
-        }
-        double homeworkWeightedGrade = this.homeworkGrade;
-        homeworkWeightedGrade *= homeworkWeight;
-
-        System.out.print("What was your overall project grade? ");
-        this.projectGrade = scan.nextDouble();
-        scan.nextLine();
-        while(this.projectGrade > 100 || this.projectGrade < 0){
-            System.out.print("Invalid Grade, please enter a correct grade: ");
-            this.projectGrade = scan.nextDouble();
-            scan.nextLine();
-        }
-        double projectWeightedGrade = this.projectGrade;
-        projectWeightedGrade  *= projectWeight;
-
-        overallGrade = quizWeightedGrade + examWeightedGrade + homeworkWeightedGrade + projectWeightedGrade;
-
-        */
+        writeToGradebook();
     }
 }
