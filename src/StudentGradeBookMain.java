@@ -62,6 +62,7 @@ public class StudentGradeBookMain {
 
         //Creates a student object using the first two elements in studentFullName
         Student student = new Student(studentFullName[0], studentFullName[1]);
+        ArrayGradeBook arrayGradeBook = new ArrayGradeBook();
 
         //Flag to see if the student is still inputting grades
         boolean studentGradeInput = true;
@@ -75,8 +76,8 @@ public class StudentGradeBookMain {
         int courseSelectedCounter = 0;
 
         int gradebookFirstLine = 0;
-        while(studentGradeInput) {
-            if(studentExitCommand == 0 || studentExitCommand == 2) {
+        while (studentGradeInput) {
+            if (studentExitCommand == 0 || studentExitCommand == 2) {
                 System.out.print("Would you like to \n" +
                         "(1) Enter grades for a class  \n" +
                         "(2) Look at grades for a previous class \n" +
@@ -110,10 +111,10 @@ public class StudentGradeBookMain {
                     pageLineBreak();
                     break;
             }
-            if(studentExitCommand == 1){
+            if (studentExitCommand == 1){
                 validateClass();
                 //This will write the name to the gradebook only once
-                if(gradebookFirstLine == 0){
+                if (gradebookFirstLine == 0){
                     student.writeNameToGradebook();
                     gradebookFirstLine = 1;
                 }
@@ -158,7 +159,7 @@ public class StudentGradeBookMain {
                                 "Enter a command (1-2)");
                         studentExitCommand = scan.nextInt();
                         scan.nextLine();
-                        if(studentExitCommand == 2){
+                        if (studentExitCommand == 2){
                             studentGradeInput = false;
                             System.out.println("Have a nice day.");
                         }
@@ -178,7 +179,7 @@ public class StudentGradeBookMain {
                 }
                 //When the counter reaches 8, the student is notified there are no more classes to enter grades for, and
                 //the program will end.
-                if(courseSelectedCounter == 8){
+                if (courseSelectedCounter == 8){
                     pageLineBreak();
                     System.out.println("There are no more classes to enter grades for.");
                     System.out.println("Have a nice day.");

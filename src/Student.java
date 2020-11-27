@@ -26,19 +26,12 @@ public class Student {
         this.studentLastName = studentLastName;
     }
 
-    public Student(){
-        /** Constructs a student object if no information is given.
-         */
-        studentFirstName = "NULL";
-        studentLastName = "NULL";
-    }
-
     public static void determineLetterGradeAndDifference(double overallGrade){
         /** Determines the letter grade for the student. Calculates
              * the percentage needed to earn the next highest grade
              */
         double gradeDifference;
-            if(overallGrade >= 90.00){
+            if (overallGrade >= 90.00){
                 System.out.println("Congratulations, your overall grade is an A for this course.");
 
             }else if (overallGrade >= 80.00){
@@ -51,12 +44,12 @@ public class Student {
                 gradeDifference = 80.00 - overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a B");
 
-            } else if(overallGrade >= 60.00){
+            } else if (overallGrade >= 60.00){
                 System.out.println("Your overall grade is a D");
                 gradeDifference = 70.00 - overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a C");
 
-            }else {
+            }else{
                 System.out.println("Your overall grade is an F");
                 gradeDifference = 60.00 - overallGrade;
                 System.out.println("You are " + String.format("%.2f",gradeDifference) + " percent from a D");
@@ -70,7 +63,7 @@ public class Student {
          */
         File gradeFile = new File("src/gradeBook.txt");
 
-        if(!gradeFile.exists()){
+        if (!gradeFile.exists()){
             gradeFile.createNewFile();
         }
         try{
@@ -91,14 +84,14 @@ public class Student {
          */
         File gradeFile = new File("src/gradeBook.txt");
 
-        if(!gradeFile.exists()){
+        if (!gradeFile.exists()){
             gradeFile.createNewFile();
         }
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
             writer.write(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase() + "\n");
             writer.close();
-        } catch (IOException writerex){
+        }catch (IOException writerex){
             System.out.println(writerex.getStackTrace());
         }
     }
@@ -113,36 +106,34 @@ public class Student {
 
 
         try {
-            if(!gradeFile.exists()) {
+            if (!gradeFile.exists()) {
                 //Ensures the program will not error when the user recalls grades when gradeBook file dosent exist
                 System.out.println("There are no previously entered grades");
             }else{
                 FileReader fileReader = new FileReader("src/gradeBook.txt");
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
                 System.out.println(this.studentFirstName + " " + this.studentLastName);
-                while((line = bufferedReader.readLine()) != null) {
+                while ((line = bufferedReader.readLine()) != null) {
                     studentGrades.add(line);
                 }
 
-                for(int i = 0; i < studentGrades.size(); i++){
-                        if(studentGrades.get(i).toLowerCase().contains(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase()))
+                for (int i = 0; i < studentGrades.size(); i++){
+                        if (studentGrades.get(i).toLowerCase().contains(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase()))
                             System.out.println(studentGrades.get(i + 1) + "\n"
                                                + studentGrades.get(i + 2) + "\n"
                                                + studentGrades.get(i + 3) + "\n"
                                                + studentGrades.get(i + 4) + "\n"
                                                + studentGrades.get(i + 5) + "\n");
                 }
-                if(!studentGrades.contains(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase())){
+                if (!studentGrades.contains(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase())){
                     System.out.println("You have not entered any grades yet");
                 }
 
                 bufferedReader.close();
             }
-        }
-        catch(FileNotFoundException ex) {
+        }catch (FileNotFoundException ex) {
             System.out.println("Error finding file '" + ex.getStackTrace() + "'");
-        }
-        catch(IOException e) {
+        }catch (IOException e) {
             System.out.println("Error reading file '" + e.getStackTrace() + "'");
         }
     }
@@ -174,7 +165,7 @@ public class Student {
         System.out.print("What was your overall quiz grade? ");
         this.quizGrade = scan.nextDouble();
         scan.nextLine();
-        while(this.quizGrade > 100 || this.quizGrade < 0){
+        while (this.quizGrade > 100 || this.quizGrade < 0){
             System.out.print("Invalid Grade, please enter a correct grade: ");
             this.quizGrade = scan.nextDouble();
             scan.nextLine();
@@ -185,7 +176,7 @@ public class Student {
         System.out.print("What was your overall exam grade? ");
         this.examGrade = scan.nextDouble();
         scan.nextLine();
-        while(this.examGrade > 100 || this.examGrade < 0){
+        while (this.examGrade > 100 || this.examGrade < 0){
             System.out.print("Invalid Grade, please enter a correct grade: ");
             this.examGrade = scan.nextDouble();
             scan.nextLine();
@@ -196,7 +187,7 @@ public class Student {
         System.out.print("What was your overall homework grade? ");
         this.homeworkGrade = scan.nextDouble();
         scan.nextLine();
-        while(this.homeworkGrade > 100 || this.homeworkGrade < 0){
+        while (this.homeworkGrade > 100 || this.homeworkGrade < 0){
             System.out.print("Invalid Grade, please enter a correct grade: ");
             this.homeworkGrade = scan.nextDouble();
             scan.nextLine();
@@ -207,7 +198,7 @@ public class Student {
         System.out.print("What was your overall project grade? ");
         this.projectGrade = scan.nextDouble();
         scan.nextLine();
-        while(this.projectGrade > 100 || this.projectGrade < 0){
+        while (this.projectGrade > 100 || this.projectGrade < 0){
             System.out.print("Invalid Grade, please enter a correct grade: ");
             this.projectGrade = scan.nextDouble();
             scan.nextLine();
