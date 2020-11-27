@@ -186,5 +186,6 @@ public class StudentGradeBookMain {
                 }
             }
         }
+        ArrayGradeBook.addAssignment();
     }
 }
