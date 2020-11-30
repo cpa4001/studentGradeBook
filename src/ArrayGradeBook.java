@@ -102,20 +102,21 @@ public class ArrayGradeBook {
         int numberOfHomework = 1;
         int numberOfProjects = 1;
 
-
-        for(int assignmentnum = 0; assignmentnum <= assignmentNames.size(); assignmentnum++){
-            if (assignmentNames.get(assignmentnum).contains("quiz")){
-                quizGrade += assignmentGrades.get(assignmentnum);
-                numberOfQuizzes++;
-            }else if (assignmentNames.get(assignmentnum).contains("exam")){
-                examGrade += assignmentGrades.get(assignmentnum);
-                numberOfExams++;
-            }else if (assignmentNames.get(assignmentnum).contains("homework")){
-                homeworkGrade += assignmentGrades.get(assignmentnum);
-                numberOfHomework++;
-            }else if (assignmentNames.get(assignmentnum).contains("project")){
-                projectGrade += assignmentGrades.get(assignmentnum);
-                numberOfProjects++;
+        if (assignmentNames.size() > 0){
+            for(int assignmentindex = 0; assignmentindex <= assignmentNames.size(); assignmentindex++){
+                if (assignmentNames.get(assignmentindex).contains("quiz")){
+                    quizGrade += assignmentGrades.get(assignmentindex);
+                    numberOfQuizzes++;
+                }else if (assignmentNames.get(assignmentindex).contains("exam")){
+                    examGrade += assignmentGrades.get(assignmentindex);
+                    numberOfExams++;
+                }else if (assignmentNames.get(assignmentindex).contains("homework")){
+                    homeworkGrade += assignmentGrades.get(assignmentindex);
+                    numberOfHomework++;
+                }else if (assignmentNames.get(assignmentindex).contains("project")){
+                    projectGrade += assignmentGrades.get(assignmentindex);
+                    numberOfProjects++;
+                }
             }
         }
 
