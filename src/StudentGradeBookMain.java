@@ -118,8 +118,7 @@ public class StudentGradeBookMain {
                     student.writeNameToGradebook();
                     gradebookFirstLine = 1;
                 }
-                //HashGradebook.addAssignment();
-                student.setCategoryGrades();
+                ArrayGradeBook.addAssignment();
                 //The student will be prompted for the grades of the current class until
                 //they answer "n"
             /* Will be used in final version when asking for list of values
@@ -187,6 +186,5 @@ public class StudentGradeBookMain {
                 }
             }
         }
-        ArrayGradeBook.addAssignment();
     }
 }

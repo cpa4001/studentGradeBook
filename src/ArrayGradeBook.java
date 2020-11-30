@@ -16,6 +16,9 @@ public class ArrayGradeBook {
     public ArrayGradeBook(){}
 
     public static void addAssignment() throws IOException {
+        /** Continuosly prompts the user to enter their grades for each assignment
+         *  and stores grades in assignmentGrades ArrayList
+         */
 
         Scanner scan = new Scanner(System.in);
         boolean gradeInput = true;
@@ -43,7 +46,7 @@ public class ArrayGradeBook {
             }
         }
         System.out.println(assignmentNames);
-        //writeToGradebook();
+        //determineoverallGrade
     }
     /*
     protected static void getAssignementGrade(){
@@ -51,8 +54,8 @@ public class ArrayGradeBook {
     }
     */
     protected static void writeToGradebook() throws IOException {
-        /** Writes the overall category grades to
-         * gradeBook.txt file.
+        /** Writes all grades that the student has entered to
+         * gradeBook.txt file for the current student
          */
         File gradeFile = new File("src/gradeBook.txt");
 
@@ -76,11 +79,6 @@ public class ArrayGradeBook {
     }
 
     protected void determineOverallGrade() throws IOException {
-        /*
-        for(int assignmentnum = 0; assignmentnum <= assignmentNames.size(); assignmentnum++){
-        }
-
-         */
         /*
         Assignment Weights
         Quizzes: 20% (225)

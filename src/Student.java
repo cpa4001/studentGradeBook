@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Student {
 
-    private final String studentFirstName;
-    private final String studentLastName;
+    public final String studentFirstName;
+    public final String studentLastName;
     private double overallGrade;
     private double quizGrade;
     private double examGrade;
