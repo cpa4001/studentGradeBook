@@ -5,18 +5,10 @@
  */
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
 public class Student {
 
     public final String studentFirstName;
     public final String studentLastName;
-    private double overallGrade;
-    private double quizGrade;
-    private double examGrade;
-    private double homeworkGrade;
-    private double projectGrade;
-
     public Student(String studentFirstName, String studentLastName){
         /** Constructs a student object using passed name.
          * @param studentFirstName
@@ -28,8 +20,9 @@ public class Student {
 
     public static void determineLetterGradeAndDifference(double overallGrade){
         /** Determines the letter grade for the student. Calculates
-             * the percentage needed to earn the next highest grade
-             */
+         * the percentage needed to earn the next highest grade
+         * @param overallGrade the students final class grade in decimal format
+         */
         double gradeDifference;
             if (overallGrade >= 90.00){
                 System.out.println("Congratulations, your overall grade is an A for this course.");
@@ -57,52 +50,12 @@ public class Student {
             }
     }
 
-    protected void writeToGradebook() throws IOException{
-        /** Writes the overall category grades to
-         * gradeBook.txt file.
-         */
-        File gradeFile = new File("src/gradeBook.txt");
-
-        if (!gradeFile.exists()){
-            gradeFile.createNewFile();
-        }
-        try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
-            writer.write("Quiz Grade: " + String.format("%.2f", this.quizGrade) +"\n");
-            writer.write("Exam Grade: " + String.format("%.2f", this.examGrade) + "\n");
-            writer.write("Homework Grade: " + String.format("%.2f", this.homeworkGrade) + "\n");
-            writer.write("Project Grade: " + String.format("%.2f", this.projectGrade) + "\n");
-            writer.write("Overall grade: " + String.format("%.2f", this.overallGrade) + "\n");
-            writer.close();
-        } catch (IOException writerex){
-            System.out.println(writerex.getStackTrace());
-        }
-    }
-
-    protected void writeNameToGradebook() throws IOException{
-        /** Writes the overall students name to the gradeBook.txt file
-         */
-        File gradeFile = new File("src/gradeBook.txt");
-
-        if (!gradeFile.exists()){
-            gradeFile.createNewFile();
-        }
-        try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
-            writer.write(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase() + "\n");
-            writer.close();
-        }catch (IOException writerex){
-            System.out.println(writerex.getStackTrace());
-        }
-    }
-
     protected void recallPreviousGrades() throws FileNotFoundException {
         /** Recalls all grades back to the student, and lets the student know
          *  there are no grades to recall if the file is black or does not exist.
          */
         String line;
         File gradeFile = new File("src/gradeBook.txt");
-        ArrayList<String> studentGrades = new ArrayList<>();
 
 
         try {
@@ -114,21 +67,19 @@ public class Student {
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
                 System.out.println(this.studentFirstName + " " + this.studentLastName);
                 while ((line = bufferedReader.readLine()) != null) {
-                    studentGrades.add(line);
+                    System.out.println(line);
                 }
 
-                for (int i = 0; i < studentGrades.size(); i++){
-                        if (studentGrades.get(i).toLowerCase().contains(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase()))
-                            System.out.println(studentGrades.get(i + 1) + "\n"
-                                               + studentGrades.get(i + 2) + "\n"
-                                               + studentGrades.get(i + 3) + "\n"
-                                               + studentGrades.get(i + 4) + "\n"
-                                               + studentGrades.get(i + 5) + "\n");
+                FileReader nullfileReader = new FileReader("src/gradeBook.txt");
+                BufferedReader nullbufferedReader = new BufferedReader(nullfileReader);
+                if ((line = nullbufferedReader.readLine()) == null){
+                    System.out.println("There are no previously entered grades");
                 }
+                /*
                 if (!studentGrades.contains(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase())){
                     System.out.println("You have not entered any grades yet");
                 }
-
+                */
                 bufferedReader.close();
             }
         }catch (FileNotFoundException ex) {
@@ -136,78 +87,5 @@ public class Student {
         }catch (IOException e) {
             System.out.println("Error reading file '" + e.getStackTrace() + "'");
         }
-    }
-
-    protected void setCategoryGrades() throws IOException {
-        /** Prompts the student to enter their grades for each category.
-         *  Calculates the weighted grade and overall class grade.
-         *  Calls the determineLetterGradeAndDifference() and
-         *  writeFile() methods
-         */
-
-        /*
-        Assignment Weights
-        Quizzes: 20% (225)
-        Exams: 30% (100)
-        Homework: 25% (100)
-        Project: 25% (125)
-        Maximum Points: 700
-        */
-
-        Scanner scan = new Scanner(System.in);
-        double quizWeight = 0.2;
-        double examWeight = 0.3;
-        double homeworkWeight = 0.25;
-        double projectWeight = 0.25;
-
-        System.out.println("PLEASE ENTER ONLY REAL NUMBERS (0.00 - 100.00) UP TO TWO DECIMAL PLACES.");
-
-        System.out.print("What was your overall quiz grade? ");
-        this.quizGrade = scan.nextDouble();
-        scan.nextLine();
-        while (this.quizGrade > 100 || this.quizGrade < 0){
-            System.out.print("Invalid Grade, please enter a correct grade: ");
-            this.quizGrade = scan.nextDouble();
-            scan.nextLine();
-        }
-        double quizWeightedGrade = this.quizGrade;
-        quizWeightedGrade *= quizWeight;
-
-        System.out.print("What was your overall exam grade? ");
-        this.examGrade = scan.nextDouble();
-        scan.nextLine();
-        while (this.examGrade > 100 || this.examGrade < 0){
-            System.out.print("Invalid Grade, please enter a correct grade: ");
-            this.examGrade = scan.nextDouble();
-            scan.nextLine();
-        }
-        double examWeightedGrade = this.examGrade;
-        examWeightedGrade *= examWeight;
-
-        System.out.print("What was your overall homework grade? ");
-        this.homeworkGrade = scan.nextDouble();
-        scan.nextLine();
-        while (this.homeworkGrade > 100 || this.homeworkGrade < 0){
-            System.out.print("Invalid Grade, please enter a correct grade: ");
-            this.homeworkGrade = scan.nextDouble();
-            scan.nextLine();
-        }
-        double homeworkWeightedGrade = this.homeworkGrade;
-        homeworkWeightedGrade *= homeworkWeight;
-
-        System.out.print("What was your overall project grade? ");
-        this.projectGrade = scan.nextDouble();
-        scan.nextLine();
-        while (this.projectGrade > 100 || this.projectGrade < 0){
-            System.out.print("Invalid Grade, please enter a correct grade: ");
-            this.projectGrade = scan.nextDouble();
-            scan.nextLine();
-        }
-        double projectWeightedGrade = this.projectGrade;
-        projectWeightedGrade  *= projectWeight;
-
-        this.overallGrade = quizWeightedGrade + examWeightedGrade + homeworkWeightedGrade + projectWeightedGrade;
-        determineLetterGradeAndDifference(this.overallGrade);
-        writeToGradebook();
     }
 }

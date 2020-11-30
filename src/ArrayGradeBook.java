@@ -15,7 +15,7 @@ public class ArrayGradeBook {
     private double projectGrade;
     public ArrayGradeBook(){}
 
-    public static void addAssignment() throws IOException {
+    protected void addAssignment() throws IOException {
         /** Continuosly prompts the user to enter their grades for each assignment
          *  and stores grades in assignmentGrades ArrayList
          */
@@ -46,7 +46,7 @@ public class ArrayGradeBook {
             }
         }
         System.out.println(assignmentNames);
-        //determineoverallGrade
+        determineOverallGrade();
     }
     /*
     protected static void getAssignementGrade(){
@@ -79,6 +79,9 @@ public class ArrayGradeBook {
     }
 
     protected void determineOverallGrade() throws IOException {
+        /** Iterates through assignmentNames ArrayList and filters out assignment type.
+         *  Takes a sum of grades for
+         */
         /*
         Assignment Weights
         Quizzes: 20% (225)
@@ -92,19 +95,33 @@ public class ArrayGradeBook {
         double examWeight = 0.3;
         double homeworkWeight = 0.25;
         double projectWeight = 0.25;
+        int numberOfQuizzes = 1;
+        int numberOfExams = 1;
+        int numberOfHomework = 1;
+        int numberOfProjects = 1;
 
 
         for(int assignmentnum = 0; assignmentnum <= assignmentNames.size(); assignmentnum++){
             if (assignmentNames.get(assignmentnum).contains("quiz")){
-                this.quizGrade += assignmentGrades.get(assignmentnum);
+                quizGrade += assignmentGrades.get(assignmentnum);
+                numberOfQuizzes++;
             }else if (assignmentNames.get(assignmentnum).contains("exam")){
-                this.examGrade += assignmentGrades.get(assignmentnum);
+                examGrade += assignmentGrades.get(assignmentnum);
+                numberOfExams++;
             }else if (assignmentNames.get(assignmentnum).contains("homework")){
-                this.homeworkGrade += assignmentGrades.get(assignmentnum);
+                homeworkGrade += assignmentGrades.get(assignmentnum);
+                numberOfHomework++;
             }else{
-                this.projectGrade += assignmentGrades.get(assignmentnum);
+                projectGrade += assignmentGrades.get(assignmentnum);
+                numberOfProjects++;
             }
         }
+
+        this.quizGrade /= numberOfQuizzes;
+        this.projectGrade /= numberOfProjects;
+        this.examGrade /= numberOfExams;
+        homeworkGrade /= numberOfHomework;
+
         this.quizGrade *= quizWeight;
         this.projectGrade *= projectWeight;
         this.examGrade *= examWeight;

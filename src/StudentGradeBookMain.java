@@ -113,12 +113,7 @@ public class StudentGradeBookMain {
             }
             if (studentExitCommand == 1){
                 validateClass();
-                //This will write the name to the gradebook only once
-                if (gradebookFirstLine == 0){
-                    student.writeNameToGradebook();
-                    gradebookFirstLine = 1;
-                }
-                ArrayGradeBook.addAssignment();
+                arrayGradeBook.addAssignment();
                 //The student will be prompted for the grades of the current class until
                 //they answer "n"
             /* Will be used in final version when asking for list of values
