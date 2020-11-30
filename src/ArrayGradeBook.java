@@ -30,7 +30,7 @@ public class ArrayGradeBook {
             if (assignmentName.toUpperCase().equals("END")) {
                 gradeInput = false;
             } else {
-                assignmentNames.add(assignmentName);
+                assignmentNames.add(assignmentName.toLowerCase());
                 try{
                     double assignementGrade = scan.nextDouble();
                     scan.nextLine();
@@ -53,11 +53,13 @@ public class ArrayGradeBook {
 
     }
     */
-    protected static void writeToGradebook() throws IOException {
+    protected void writeToGradebook(String studentFirstName, String studentLastName) throws IOException {
         /** Writes all grades that the student has entered to
-         * gradeBook.txt file for the current student
+         * gradeBook.txt file for the current student.
+         * @param studentFirstName
+         * @param studentLastName
          */
-        File gradeFile = new File("src/gradeBook.txt");
+        File gradeFile = new File("src/gradeBook" + studentFirstName + studentLastName + ".txt");
 
         if (!gradeFile.exists()){
             gradeFile.createNewFile();
@@ -111,7 +113,7 @@ public class ArrayGradeBook {
             }else if (assignmentNames.get(assignmentnum).contains("homework")){
                 homeworkGrade += assignmentGrades.get(assignmentnum);
                 numberOfHomework++;
-            }else{
+            }else if (assignmentNames.get(assignmentnum).contains("project")){
                 projectGrade += assignmentGrades.get(assignmentnum);
                 numberOfProjects++;
             }
@@ -131,6 +133,5 @@ public class ArrayGradeBook {
 
         Student.determineLetterGradeAndDifference(this.overallGrade);
 
-        writeToGradebook();
     }
 }

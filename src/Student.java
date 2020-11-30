@@ -75,11 +75,7 @@ public class Student {
                 if ((line = nullbufferedReader.readLine()) == null){
                     System.out.println("There are no previously entered grades");
                 }
-                /*
-                if (!studentGrades.contains(this.studentFirstName.toLowerCase() + " " + this.studentLastName.toLowerCase())){
-                    System.out.println("You have not entered any grades yet");
-                }
-                */
+
                 bufferedReader.close();
             }
         }catch (FileNotFoundException ex) {

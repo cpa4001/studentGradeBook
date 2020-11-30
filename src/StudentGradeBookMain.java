@@ -103,6 +103,7 @@ public class StudentGradeBookMain {
                             "Enter a command (1-2) ");
                     studentExitCommand = scan.nextInt();
                     scan.nextLine();
+
                     if(studentExitCommand == 2){
                         studentGradeInput = false;
                         pageLineBreak();
@@ -112,8 +113,11 @@ public class StudentGradeBookMain {
                     break;
             }
             if (studentExitCommand == 1){
+
                 validateClass();
                 arrayGradeBook.addAssignment();
+                arrayGradeBook.writeToGradebook(student.studentFirstName, student.studentLastName);
+
                 //The student will be prompted for the grades of the current class until
                 //they answer "n"
             /* Will be used in final version when asking for list of values
@@ -153,6 +157,7 @@ public class StudentGradeBookMain {
                                 "Enter a command (1-2)");
                         studentExitCommand = scan.nextInt();
                         scan.nextLine();
+
                         if (studentExitCommand == 2){
                             studentGradeInput = false;
                             System.out.println("Have a nice day.");
