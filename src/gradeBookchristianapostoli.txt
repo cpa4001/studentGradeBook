@@ -1,5 +1,0 @@
-exam 2 67.89homework 3 89.33exam 1  23.88
-exam 2 89.77
-homework 1 89.99
-homework 2 89.98
-project beta 78.67

@@ -17,7 +17,8 @@ public class ArrayGradeBook {
 
     protected void addAssignment() throws IOException {
         /** Continuosly prompts the user to enter their grades for each assignment
-         *  and stores grades in assignmentGrades ArrayList
+         *  and stores grades in assignmentGrades ArrayList in double format and
+         *  stores the names of the assignments in assignmentNames ArrayList
          */
 
         Scanner scan = new Scanner(System.in);
@@ -83,7 +84,7 @@ public class ArrayGradeBook {
 
     protected void determineOverallGrade() throws IOException {
         /** Iterates through assignmentNames ArrayList and filters out assignment type.
-         *  Takes a sum of grades for
+         *  Takes a sum of grades for each assignment category and
          */
         /*
         Assignment Weights

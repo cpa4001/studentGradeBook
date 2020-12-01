@@ -63,19 +63,19 @@ public class Student {
                 //Ensures the program will not error when the user recalls grades when gradeBook file dosent exist
                 System.out.println("There are no previously entered grades");
             }else{
-                FileReader fileReader = new FileReader("src/gradeBook.txt");
+                FileReader fileReader = new FileReader("src/gradeBook" + studentFirstName + studentLastName + ".txt");
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
                 System.out.println(this.studentFirstName + " " + this.studentLastName);
                 while ((line = bufferedReader.readLine()) != null) {
                     System.out.println(line);
                 }
 
-                FileReader nullfileReader = new FileReader("src/gradeBook.txt");
+                FileReader nullfileReader = new FileReader("src/gradeBook" + studentFirstName + studentLastName + ".txt");
                 BufferedReader nullbufferedReader = new BufferedReader(nullfileReader);
                 if ((line = nullbufferedReader.readLine()) == null){
                     System.out.println("There are no previously entered grades");
                 }
-
+                nullbufferedReader.close();
                 bufferedReader.close();
             }
         }catch (FileNotFoundException ex) {
