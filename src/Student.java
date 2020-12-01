@@ -55,7 +55,7 @@ public class Student {
          *  there are no grades to recall if the file is black or does not exist.
          */
         String line;
-        File gradeFile = new File("src/gradeBook.txt");
+        File gradeFile = new File("src/gradeBook" + studentFirstName + studentLastName + ".txt");
 
 
         try {

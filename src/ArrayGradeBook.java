@@ -45,7 +45,6 @@ public class ArrayGradeBook {
                 }
             }
         }
-        System.out.println(assignmentNames);
         determineOverallGrade();
     }
     /*
@@ -66,8 +65,10 @@ public class ArrayGradeBook {
         }
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(gradeFile, true));
-            for(int assignmentnum = 0; assignmentnum <= assignmentNames.size(); assignmentnum++){
-                writer.write(assignmentNames.get(assignmentnum) + " " + assignmentGrades.get(assignmentnum));
+            if (assignmentNames.size() > 0){
+                for(int assignmentnum = 0; assignmentnum <= (assignmentNames.size() - 1); assignmentnum++){
+                    writer.write(assignmentNames.get(assignmentnum) + " " + assignmentGrades.get(assignmentnum) + "\n");
+                }
             }
             writer.close();
             /*
@@ -103,7 +104,7 @@ public class ArrayGradeBook {
         int numberOfProjects = 1;
 
         if (assignmentNames.size() > 0){
-            for(int assignmentindex = 0; assignmentindex <= assignmentNames.size(); assignmentindex++){
+            for(int assignmentindex = 0; assignmentindex <= (assignmentNames.size() - 1); assignmentindex++){
                 if (assignmentNames.get(assignmentindex).contains("quiz")){
                     quizGrade += assignmentGrades.get(assignmentindex);
                     numberOfQuizzes++;
@@ -133,6 +134,11 @@ public class ArrayGradeBook {
         this.overallGrade = this.quizGrade + this.homeworkGrade + this.examGrade + this.projectGrade;
 
         Student.determineLetterGradeAndDifference(this.overallGrade);
+
+        System.out.println("Quiz grade: " + this.quizGrade);
+        System.out.println("Exam grade: " + this.examGrade);
+        System.out.println("Project grade " + this.projectGrade);
+        System.out.println("Homework grade " + this.homeworkGrade);
 
     }
 }
