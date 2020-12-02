@@ -23,6 +23,7 @@ public class ArrayGradeBook {
 
         Scanner scan = new Scanner(System.in);
         boolean gradeInput = true;
+        System.out.println("PLEASE ENTER ASSIGNMENT NAME PRESS ENTER AND THEN ENTER ASSIGNMENT GRADE");
         System.out.println("PLEASE ENTER ONLY REAL NUMBERS (0.00 - 100.00) UP TO TWO DECIMAL PLACES.");
         System.out.println("Enter END to stop entering grades");
         while(gradeInput) {
@@ -56,8 +57,8 @@ public class ArrayGradeBook {
     protected void writeToGradebook(String studentFirstName, String studentLastName) throws IOException {
         /** Writes all grades that the student has entered to
          * gradeBook.txt file for the current student.
-         * @param studentFirstName
-         * @param studentLastName
+         * @param studentFirstName the student's first name
+         * @param studentLastName the student's last name
          */
         File gradeFile = new File("src/gradeBook" + studentFirstName + studentLastName + ".txt");
 
@@ -77,6 +78,7 @@ public class ArrayGradeBook {
              */
             assignmentNames.clear();
             assignmentGrades.clear();
+            setGradesToZero();
         }catch (IOException writerex){
             System.out.println(writerex.getStackTrace());
         }
@@ -84,8 +86,10 @@ public class ArrayGradeBook {
 
     protected void determineOverallGrade() throws IOException {
         /** Iterates through assignmentNames ArrayList and filters out assignment type.
-         *  Takes a sum of grades for each assignment category and
+         *  Takes a sum of grades for each assignment category and calculates the grade for that category.
+         *  Then adds all the category grades to get the student's overall grade.
          */
+
         /*
         Assignment Weights
         Quizzes: 20% (225)
@@ -99,23 +103,23 @@ public class ArrayGradeBook {
         double examWeight = 0.3;
         double homeworkWeight = 0.25;
         double projectWeight = 0.25;
-        int numberOfQuizzes = 1;
-        int numberOfExams = 1;
-        int numberOfHomework = 1;
-        int numberOfProjects = 1;
+        int numberOfQuizzes = 0;
+        int numberOfExams = 0;
+        int numberOfHomework = 0;
+        int numberOfProjects = 0;
 
-        if (assignmentNames.size() > 0){
-            for(int assignmentindex = 0; assignmentindex <= (assignmentNames.size() - 1); assignmentindex++){
-                if (assignmentNames.get(assignmentindex).contains("quiz")){
+        if (assignmentNames.size() > 0) {
+            for (int assignmentindex = 0; assignmentindex <= (assignmentNames.size() - 1); assignmentindex++) {
+                if (assignmentNames.get(assignmentindex).contains("quiz")) {
                     quizGrade += assignmentGrades.get(assignmentindex);
                     numberOfQuizzes++;
-                }else if (assignmentNames.get(assignmentindex).contains("exam")){
+                } else if (assignmentNames.get(assignmentindex).contains("exam")) {
                     examGrade += assignmentGrades.get(assignmentindex);
                     numberOfExams++;
-                }else if (assignmentNames.get(assignmentindex).contains("homework")){
+                } else if (assignmentNames.get(assignmentindex).contains("homework")) {
                     homeworkGrade += assignmentGrades.get(assignmentindex);
                     numberOfHomework++;
-                }else if (assignmentNames.get(assignmentindex).contains("project")){
+                } else if (assignmentNames.get(assignmentindex).contains("project")) {
                     projectGrade += assignmentGrades.get(assignmentindex);
                     numberOfProjects++;
                 }
@@ -125,7 +129,14 @@ public class ArrayGradeBook {
         this.quizGrade /= numberOfQuizzes;
         this.projectGrade /= numberOfProjects;
         this.examGrade /= numberOfExams;
-        homeworkGrade /= numberOfHomework;
+        this.homeworkGrade /= numberOfHomework;
+
+        //Since the grades were converted to their percentages above
+        //the grades are displayed out of 100
+        System.out.println("Quiz grade: " + this.quizGrade);
+        System.out.println("Exam grade: " + this.examGrade);
+        System.out.println("Project grade " + this.projectGrade);
+        System.out.println("Homework grade " + this.homeworkGrade);
 
         this.quizGrade *= quizWeight;
         this.projectGrade *= projectWeight;
@@ -135,11 +146,14 @@ public class ArrayGradeBook {
         this.overallGrade = this.quizGrade + this.homeworkGrade + this.examGrade + this.projectGrade;
 
         Student.determineLetterGradeAndDifference(this.overallGrade);
+    }
 
-        System.out.println("Quiz grade: " + this.quizGrade);
-        System.out.println("Exam grade: " + this.examGrade);
-        System.out.println("Project grade " + this.projectGrade);
-        System.out.println("Homework grade " + this.homeworkGrade);
-
+    private void setGradesToZero(){
+        /** Sets the grades back to zero for the next class
+         */
+        this.homeworkGrade = 0;
+        this.projectGrade = 0;
+        this.examGrade = 0;
+        this.quizGrade = 0;
     }
 }

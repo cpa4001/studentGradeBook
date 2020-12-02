@@ -116,7 +116,7 @@ public class StudentGradeBookMain {
 
                 validateClass();
                 arrayGradeBook.addAssignment();
-                arrayGradeBook.writeToGradebook(student.studentFirstName.toLowerCase(), student.studentLastName.toLowerCase());
+                arrayGradeBook.writeToGradebook(studentFullName[0].toLowerCase(), studentFullName[1].toLowerCase());
 
                 //The student will be prompted for the grades of the current class until
                 //they answer "n"

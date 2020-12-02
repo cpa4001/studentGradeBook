@@ -7,8 +7,8 @@
 import java.io.*;
 public class Student {
 
-    public final String studentFirstName;
-    public final String studentLastName;
+    private final String studentFirstName;
+    private final String studentLastName;
     public Student(String studentFirstName, String studentLastName){
         /** Constructs a student object using passed name.
          * @param studentFirstName
@@ -65,7 +65,7 @@ public class Student {
             }else{
                 FileReader fileReader = new FileReader("src/gradeBook" + studentFirstName + studentLastName + ".txt");
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
-                System.out.println(this.studentFirstName + " " + this.studentLastName);
+                System.out.println(this.studentFirstName.toUpperCase() + " " + this.studentLastName.toUpperCase());
                 while ((line = bufferedReader.readLine()) != null) {
                     System.out.println(line);
                 }
