@@ -32,8 +32,8 @@ public class ArrayGradeBook {
             if (assignmentName.toUpperCase().equals("END")) {
                 gradeInput = false;
             } else {
-                assignmentNames.add(assignmentName.toLowerCase());
                 try{
+                    assignmentNames.add(assignmentName.toLowerCase());
                     double assignementGrade = scan.nextDouble();
                     scan.nextLine();
                     while(assignementGrade > 100 || assignementGrade < 0){
@@ -44,16 +44,15 @@ public class ArrayGradeBook {
                     assignmentGrades.add(assignementGrade);
                 }catch (NumberFormatException e) { //if user doesn't input a number, this will catch the error
                     System.out.println("Error: Not a valid grade");
+                }catch (InputMismatchException ex) {
+                    System.out.println("Not a valid Assignment name");
+                    assignmentGrades.add(0.00);
                 }
             }
         }
         determineOverallGrade();
     }
-    /*
-    protected static void getAssignementGrade(){
 
-    }
-    */
     protected void writeToGradebook(String studentFirstName, String studentLastName) throws IOException {
         /** Writes all grades that the student has entered to
          * gradeBook.txt file for the current student.
