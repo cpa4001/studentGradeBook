@@ -44,9 +44,11 @@ public class ArrayGradeBook {
                     assignmentGrades.add(assignementGrade);
                 }catch (NumberFormatException e) { //if user doesn't input a number, this will catch the error
                     System.out.println("Error: Not a valid grade");
+                    gradeInput = true;
                 }catch (InputMismatchException ex) {
                     System.out.println("Not a valid Assignment name");
                     assignmentGrades.add(0.00);
+                    gradeInput = true;
                 }
             }
         }
@@ -102,10 +104,10 @@ public class ArrayGradeBook {
         double examWeight = 0.3;
         double homeworkWeight = 0.25;
         double projectWeight = 0.25;
-        int numberOfQuizzes = 0;
-        int numberOfExams = 0;
-        int numberOfHomework = 0;
-        int numberOfProjects = 0;
+        int numberOfQuizzes = 1;
+        int numberOfExams = 1;
+        int numberOfHomework = 1;
+        int numberOfProjects = 1;
 
         if (assignmentNames.size() > 0) {
             for (int assignmentindex = 0; assignmentindex <= (assignmentNames.size() - 1); assignmentindex++) {
