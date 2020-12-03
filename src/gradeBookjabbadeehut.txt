@@ -1,0 +1,6 @@
+quiz 1 89.54
+quiz 2 98.66
+quiz 3 88.44
+homework 2 89.5
+project alpha 32.33
+exam 1 45.88
