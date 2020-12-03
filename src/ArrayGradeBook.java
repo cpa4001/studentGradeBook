@@ -46,8 +46,7 @@ public class ArrayGradeBook {
                     System.out.println("Error: Not a valid grade");
                     gradeInput = true;
                 }catch (InputMismatchException ex) {
-                    System.out.println("Not a valid Assignment name");
-                    assignmentGrades.add(0.00);
+                    System.out.println("Not a valid Assignment name or grade");
                     gradeInput = true;
                 }
             }
@@ -104,10 +103,10 @@ public class ArrayGradeBook {
         double examWeight = 0.3;
         double homeworkWeight = 0.25;
         double projectWeight = 0.25;
-        int numberOfQuizzes = 1;
-        int numberOfExams = 1;
-        int numberOfHomework = 1;
-        int numberOfProjects = 1;
+        int numberOfQuizzes = 0;
+        int numberOfExams = 0;
+        int numberOfHomework = 0;
+        int numberOfProjects = 0;
 
         if (assignmentNames.size() > 0) {
             for (int assignmentindex = 0; assignmentindex <= (assignmentNames.size() - 1); assignmentindex++) {
@@ -127,10 +126,19 @@ public class ArrayGradeBook {
             }
         }
 
-        this.quizGrade /= numberOfQuizzes;
-        this.projectGrade /= numberOfProjects;
-        this.examGrade /= numberOfExams;
-        this.homeworkGrade /= numberOfHomework;
+        if(numberOfQuizzes == 0) {
+            numberOfQuizzes++;
+            this.quizGrade /= numberOfQuizzes;
+        }else if(numberOfProjects == 0){
+            numberOfProjects++;
+            this.projectGrade /= numberOfProjects;
+        }else if(numberOfExams == 0){
+            numberOfExams++;
+            this.examGrade /= numberOfExams;
+        }else if(numberOfHomework == 0){
+            numberOfHomework++;
+            this.homeworkGrade /= numberOfHomework;
+        }
 
         //Since the grades were converted to their percentages above
         //the grades are displayed out of 100
