@@ -44,3 +44,6 @@ _Sprint 4_  </br>
 Week 10: Building more methods for writing/reading files  </br>
 Week 11: Commenting, annotating, and increasing readability </br>
 Week 12: Final testing and veryifying user requirements are met
+Week 13: Adding a new class for users to input individual assignment grades
+Week 14: Cleaning code and deleting unnecessary methods
+Week 15: Final testing and debugging
