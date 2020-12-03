@@ -117,20 +117,7 @@ public class StudentGradeBookMain {
                 validateClass();
                 arrayGradeBook.addAssignment();
                 arrayGradeBook.writeToGradebook(studentFullName[0].toLowerCase(), studentFullName[1].toLowerCase());
-
-                //The student will be prompted for the grades of the current class until
-                //they answer "n"
-            /* Will be used in final version when asking for list of values
-            System.out.print("Are you done entering grades for this class? (y/n) ");
-            studentYesOrNo = scan.nextLine();
-            if(studentYesOrNo.toLowerCase().equals("y")){
-                studentGradeInputCurrentClass = false;
-                courseSelectedCounter++;
-                previouslySelectedClasses.add(classSelected);
-            } else{
-                courseSelectedCounter++;
-            }
-            */
+             
                 courseSelectedCounter++;
                 pageLineBreak();
 
